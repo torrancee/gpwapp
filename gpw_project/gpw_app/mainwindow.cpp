@@ -12,3 +12,8 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_pushButtonAkrz_clicked()
+{
+    ui->pushButtonAkrz->setText("GPW");
+}
