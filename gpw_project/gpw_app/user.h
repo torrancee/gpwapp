@@ -12,8 +12,9 @@ public:
     User(string);
 
 private:
-    string name;
-
+    const string name;
+    double account;
+    int noOfStockCompany;
 };
 
 #endif // USER_H
