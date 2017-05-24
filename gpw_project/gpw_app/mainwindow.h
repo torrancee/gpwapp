@@ -14,10 +14,11 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void addItemsToUsersComboBox();
 
 private slots:
 
-    void on_pushButtonAkrz_clicked();
+    void on_ImportData_clicked();
 
 private:
     Ui::MainWindow *ui;
