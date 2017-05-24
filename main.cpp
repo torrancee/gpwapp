@@ -1,6 +1,9 @@
 #include <iostream>
+
+using namespace std;
+
 int main(){
 
-	std::cout << "to much GPW" << std::endl;
+	cout << "to much GPW" << endl;
 	return 0;
 }
