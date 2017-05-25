@@ -13,6 +13,8 @@ Login::Login(QWidget *parent) :
     ui->PicLabel->setPixmap(picture.scaled(ui->PicLabel->width(),
                                            ui->PicLabel->height(),
                                            Qt::KeepAspectRatio));
+
+    logsAndPass["superuser"] = "letmein";
 }
 
 Login::~Login()
@@ -23,13 +25,13 @@ Login::~Login()
 
 void Login::on_GoIn_clicked()
 {
-    QString login = "superuser";
-    QString pass = "letmein";
-    if(ui->LogIn->text()==login && ui->Pass->text()==pass){
-        hide();
-        main = new MainWindow;
-        main->show();}
-    else{
-        QMessageBox::warning(this, "Upsss", "Inccorect user and password");
-    }
+      QString login = ui->LogIn->text();
+      if((logsAndPass.find(ui->LogIn->text()) != logsAndPass.end()) && //find correct user in map
+         (logsAndPass[ui->LogIn->text()] == ui->Pass->text())){        //and check if passwords are matching
+                  hide();
+                  main = new MainWindow;
+                  main->show();
+      }else{
+                  QMessageBox::warning(this, "Upsss", "Inccorect user and password");
+      }
 }

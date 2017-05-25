@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "mainwindow.h"
+#include <map>
+#include <QString>
 
 namespace Ui {
 class Login;
@@ -22,6 +24,8 @@ private slots:
 private:
     Ui::Login *ui;
     MainWindow *main;
+    std::map<QString, QString> logsAndPass;
+
 };
 
 #endif // LOGIN_H
