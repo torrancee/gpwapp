@@ -3,8 +3,10 @@
 
 #include <QMainWindow>
 #include <QPalette>
+#include <QTreeWidgetItem>
 #include <user.h>
 #include "additemwindow.h"
+#include <vector>
 
 namespace Ui {
 class MainWindow;
@@ -39,6 +41,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    std::vector<QTreeWidgetItem> items;
+
 };
 
 #endif // MAINWINDOW_H

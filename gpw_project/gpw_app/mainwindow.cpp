@@ -1,7 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
-#include <QDebug>
+
+using std::shared_ptr;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,7 +23,6 @@ MainWindow::MainWindow(QWidget *parent) :
     red.setColor(QPalette::Text, Qt::red);
     green.setColor(QPalette::Text, Qt::darkGreen);
     black.setColor(QPalette::Text, Qt::black);
-
 
 }
 
@@ -56,6 +56,7 @@ void MainWindow::setAllConnections()
 
 void MainWindow::on_AccountValue_textChanged(const QString &value)
 {
+    //TODO: connect it with backend calculated data
     if(value=="AKRZ"){
         ui->AccountValue->setText("10000");
     }
@@ -69,6 +70,7 @@ void MainWindow::on_AccountValue_textChanged(const QString &value)
 
 void MainWindow::on_AccountPercent_textChanged(const QString &value)
 {
+    //TODO: connect it with backend calculated data
     if(value=="AKRZ"){
         ui->AccountPercent->setText("5%");
         ui->AccountPercent->setPalette(green);
@@ -91,5 +93,8 @@ void MainWindow::on_AddItem_clicked()
 
 void MainWindow::putTheItemToList(QString name, QString price)
 {
-    ui->StockList->addItem(name);
+    shared_ptr<QTreeWidgetItem> item = std::make_shared<QTreeWidgetItem>(ui->StockList);
+    item->setText(0, name);
+    item->setText(1, price);
+    akrz->stockItems.push_back(item);
 }

@@ -27,12 +27,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     user.cpp \
     login.cpp \
-    additemwindow.cpp
+    additemwindow.cpp \
+    stockitem.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
     login.h \
-    additemwindow.h
+    additemwindow.h \
+    stockitem.h
 
 FORMS    += mainwindow.ui \
     login.ui \
