@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QPalette>
 #include <user.h>
+#include "additemwindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,6 +19,7 @@ public:
     ~MainWindow();
     User *akrz, *wpog;
     QPalette red, green, black;
+    AddItemWindow *itemWindow;
     void addItemsToUsersComboBox();
     void setAllConnections();
 
@@ -28,6 +30,8 @@ private slots:
     void on_AccountValue_textChanged(const QString &value);
 
     void on_AccountPercent_textChanged(const QString &value);
+
+    void on_AddItem_clicked();
 
 private:
     Ui::MainWindow *ui;

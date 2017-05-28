@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -14,10 +15,14 @@ MainWindow::MainWindow(QWidget *parent) :
     akrz = new User("Adam Krzywaniak");
     wpog = new User("Wiktor Pogoda");
 
+    //create window for add item
+    itemWindow = new AddItemWindow();
+
     //set text color for red, green and black palletes
     red.setColor(QPalette::Text, Qt::red);
     green.setColor(QPalette::Text, Qt::darkGreen);
     black.setColor(QPalette::Text, Qt::black);
+
 
 }
 
@@ -26,6 +31,9 @@ MainWindow::~MainWindow()
     //delete users
     delete akrz;
     delete wpog;
+
+    //delete add item window
+    delete itemWindow;
 
     delete ui;
 }
@@ -73,4 +81,13 @@ void MainWindow::on_AccountPercent_textChanged(const QString &value)
         ui->AccountPercent->setText("0%");
         ui->AccountPercent->setPalette(black);
     }
+}
+
+void MainWindow::on_AddItem_clicked()
+{
+    QString name;
+    QString price;
+
+    itemWindow->show();
+
 }
