@@ -23,6 +23,10 @@ public:
     void addItemsToUsersComboBox();
     void setAllConnections();
 
+public slots:
+
+    void putTheItemToList(QString name, QString price);
+
 private slots:
 
     void on_ImportData_clicked();

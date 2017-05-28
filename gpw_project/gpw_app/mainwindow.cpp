@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     wpog = new User("Wiktor Pogoda");
 
     //create window for add item
-    itemWindow = new AddItemWindow();
+    itemWindow = new AddItemWindow(this);
 
     //set text color for red, green and black palletes
     red.setColor(QPalette::Text, Qt::red);
@@ -85,9 +85,11 @@ void MainWindow::on_AccountPercent_textChanged(const QString &value)
 
 void MainWindow::on_AddItem_clicked()
 {
-    QString name;
-    QString price;
-
     itemWindow->show();
 
+}
+
+void MainWindow::putTheItemToList(QString name, QString price)
+{
+    ui->StockList->addItem(name);
 }

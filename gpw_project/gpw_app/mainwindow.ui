@@ -125,7 +125,7 @@
       </widget>
      </item>
      <item row="4" column="0" colspan="2">
-      <widget class="QListWidget" name="listWidget"/>
+      <widget class="QListWidget" name="StockList"/>
      </item>
     </layout>
    </widget>
@@ -138,7 +138,7 @@
    <zorder>Wallet</zorder>
    <zorder>scrollArea</zorder>
    <zorder>AddItem</zorder>
-   <zorder>listWidget</zorder>
+   <zorder>StockList</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

@@ -11,6 +11,9 @@ class AddItemWindow : public QDialog
 {
     Q_OBJECT
 
+signals:
+    void mySignal(QString name, QString price);
+
 public:
     explicit AddItemWindow(QWidget *parent = 0);
     ~AddItemWindow();
@@ -22,6 +25,7 @@ private slots:
 
 private:
     Ui::AddItemWindow *ui;
+    void sendTheListOfStocks(QString name, QString price);
 
 };
 
