@@ -20,7 +20,6 @@ Login::Login(QWidget *parent) :
 Login::~Login()
 {
     delete ui;
-    delete main;
 }
 
 void Login::on_GoIn_clicked()
@@ -29,9 +28,10 @@ void Login::on_GoIn_clicked()
       if((logsAndPass.find(ui->LogIn->text()) != logsAndPass.end()) && //find correct user in map
          (logsAndPass[ui->LogIn->text()] == ui->Pass->text())){        //and check if passwords are matching
                   hide();
-                  main = new MainWindow;
+                  main = new MainWindow(this);
                   main->show();
-      }else{
+      }
+      else{
                   QMessageBox::warning(this, "Upsss", "Inccorect user and password");
       }
 }
