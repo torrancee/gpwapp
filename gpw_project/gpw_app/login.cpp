@@ -31,7 +31,8 @@ void Login::on_GoIn_clicked()
                   main = new MainWindow(this);
                   main->show();
       }
-      else{
+      else
+      {
                   QMessageBox::warning(this, "Upsss", "Inccorect user and password");
       }
 }

@@ -31,6 +31,9 @@ MainWindow::MainWindow(QWidget *parent) :
     //set date
     ui->todayLine->setText(QDate::currentDate().toString("ddd dd.MM.yyyy"));
 
+    //set header names in stock list
+    ui->StockList->setHeaderLabels({"NAME", "PRICE"});
+
 }
 
 MainWindow::~MainWindow()
