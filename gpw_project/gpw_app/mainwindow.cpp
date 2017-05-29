@@ -110,6 +110,12 @@ void MainWindow::makePlot()
 {
     ui->stockChart->legend->setVisible(true);
 
+    //fancy color background added
+    QLinearGradient plotGradient(0,0, ui->stockChart->width(), ui->stockChart->height());
+    plotGradient.setColorAt(0, Qt::white);
+    plotGradient.setColorAt(1, Qt::gray);
+    ui->stockChart->setBackground(plotGradient);
+
     // generate two sets of random walk data (one for candlestick and one for ohlc chart):
     int n = 500;
     QVector<double> time(n), value1(n), value2(n);
