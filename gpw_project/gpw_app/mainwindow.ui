@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>GPW app</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="ImportData">
     <property name="geometry">
@@ -39,7 +42,7 @@
      <string>Import Data</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>13</x>
@@ -143,16 +146,19 @@
      </item>
     </layout>
    </widget>
+   <widget class="QCustomPlot" name="stockChart" native="true">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>10</y>
+      <width>561</width>
+      <height>341</height>
+     </rect>
+    </property>
+   </widget>
+   <zorder>layoutWidget</zorder>
    <zorder>ImportData</zorder>
-   <zorder>Account</zorder>
-   <zorder>User</zorder>
-   <zorder>UsersComboBox</zorder>
-   <zorder>AccountValue</zorder>
-   <zorder>AccountPercent</zorder>
-   <zorder>Wallet</zorder>
-   <zorder>scrollArea</zorder>
-   <zorder>AddItem</zorder>
-   <zorder>StockList</zorder>
+   <zorder>stockChart</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -160,7 +166,7 @@
      <x>0</x>
      <y>0</y>
      <width>1100</width>
-     <height>19</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -174,6 +180,14 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

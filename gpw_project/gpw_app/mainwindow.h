@@ -43,6 +43,7 @@ private:
     Ui::MainWindow *ui;
     std::vector<QTreeWidgetItem> items;
 
+    void makePlot();
 };
 
 #endif // MAINWINDOW_H

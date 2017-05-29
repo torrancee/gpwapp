@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = gpw_app
 TEMPLATE = app
@@ -28,13 +28,15 @@ SOURCES += main.cpp\
     user.cpp \
     login.cpp \
     additemwindow.cpp \
-    stockitem.cpp
+    stockitem.cpp \
+    qcustomplot.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
     login.h \
     additemwindow.h \
-    stockitem.h
+    stockitem.h \
+    qcustomplot.h
 
 FORMS    += mainwindow.ui \
     login.ui \
