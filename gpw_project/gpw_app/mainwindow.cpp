@@ -37,10 +37,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QPixmap picture(":/img/gpwapp.png");
     ui->PicLabel->setPixmap(picture);
 
-//            .scaled(ui->PicLabel->width(),
-//                                           ui->PicLabel->height(),
-//                                           Qt::KeepAspectRatio));
-
 }
 
 MainWindow::~MainWindow()
