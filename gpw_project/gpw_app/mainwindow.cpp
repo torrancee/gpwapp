@@ -34,6 +34,13 @@ MainWindow::MainWindow(QWidget *parent) :
     //set header names in stock list
     ui->StockList->setHeaderLabels({"NAME", "PRICE"});
 
+    QPixmap picture(":/img/gpwapp.png");
+    ui->PicLabel->setPixmap(picture);
+
+//            .scaled(ui->PicLabel->width(),
+//                                           ui->PicLabel->height(),
+//                                           Qt::KeepAspectRatio));
+
 }
 
 MainWindow::~MainWindow()
