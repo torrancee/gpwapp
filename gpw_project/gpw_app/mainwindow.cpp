@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
+#include <QDate>
 
 using std::shared_ptr;
 
@@ -26,6 +27,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //make default plot
     makePlot();
+
+    //set date
+    ui->todayLine->setText(QDate::currentDate().toString("ddd dd.MM.yyyy"));
 
 }
 

@@ -46,7 +46,7 @@
     <property name="geometry">
      <rect>
       <x>13</x>
-      <y>15</y>
+      <y>10</y>
       <width>258</width>
       <height>431</height>
      </rect>
@@ -156,9 +156,37 @@
      </rect>
     </property>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>10</y>
+      <width>188</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="today">
+       <property name="text">
+        <string>Today:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="todayLine">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
    <zorder>layoutWidget</zorder>
    <zorder>ImportData</zorder>
    <zorder>stockChart</zorder>
+   <zorder>today</zorder>
+   <zorder>todayLine</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
