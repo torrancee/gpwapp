@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>368</width>
-    <height>109</height>
+    <height>137</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,67 +18,78 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>91</width>
-     <height>91</height>
+     <width>111</width>
+     <height>111</height>
     </rect>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>130</x>
      <y>9</y>
-     <width>221</width>
-     <height>86</height>
+     <width>231</width>
+     <height>114</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QLabel" name="loginLabel">
-          <property name="text">
-           <string>User:</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="loginLabel">
+            <property name="text">
+             <string>User:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="LogIn"/>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QLineEdit" name="LogIn"/>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="passLabel">
+            <property name="text">
+             <string>Pass:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="Pass">
+            <property name="inputMethodHints">
+             <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+            </property>
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QLabel" name="passLabel">
-          <property name="text">
-           <string>Pass:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="Pass">
-          <property name="inputMethodHints">
-           <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
-          </property>
-          <property name="echoMode">
-           <enum>QLineEdit::Password</enum>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <widget class="QPushButton" name="GoIn">
+        <property name="text">
+         <string>GO IN</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
     <item>
-     <widget class="QPushButton" name="GoIn">
+     <widget class="QPushButton" name="AddNew">
       <property name="text">
-       <string>GO IN</string>
+       <string>ADD NEW USER</string>
       </property>
      </widget>
     </item>

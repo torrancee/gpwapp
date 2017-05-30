@@ -2,7 +2,6 @@
 #define LOGIN_H
 
 #include <QWidget>
-#include "mainwindow.h"
 #include <map>
 #include <QString>
 
@@ -18,12 +17,16 @@ public:
     explicit Login(QWidget *parent = 0);
     ~Login();
 
+public slots:
+    void receiveUserData(QString, QString);
+
 private slots:
     void on_GoIn_clicked();
 
+    void on_AddNew_clicked();
+
 private:
     Ui::Login *ui;
-    MainWindow *main;
     std::map<QString, QString> logsAndPass;
 
 };

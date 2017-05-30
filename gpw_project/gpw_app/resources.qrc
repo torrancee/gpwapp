@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>img/logo.png</file>
         <file>img/gpwapp.png</file>
+        <file>img/users.png</file>
     </qresource>
 </RCC>

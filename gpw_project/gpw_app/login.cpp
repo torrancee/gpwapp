@@ -1,4 +1,6 @@
 #include "login.h"
+#include "mainwindow.h"
+#include "adduser.h"
 #include "ui_login.h"
 #include <QString>
 #include <QMessageBox>
@@ -25,17 +27,29 @@ Login::~Login()
     delete ui;
 }
 
+void Login::receiveUserData(QString login, QString pass)
+{
+    logsAndPass[login] = pass;
+}
+
 void Login::on_GoIn_clicked()
 {
       QString login = ui->LogIn->text();
       if((logsAndPass.find(ui->LogIn->text()) != logsAndPass.end()) && //find correct user in map
          (logsAndPass[ui->LogIn->text()] == ui->Pass->text())){        //and check if passwords are matching
                   hide();
-                  main = new MainWindow(this);
+                  MainWindow *main = new MainWindow(this);
                   main->show();
       }
       else
       {
                   QMessageBox::warning(this, "Upsss", "Inccorect user and password");
       }
+}
+
+void Login::on_AddNew_clicked()
+{    
+      AddUser newuser(this);
+      newuser.setModal(true);
+      newuser.exec();
 }
