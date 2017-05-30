@@ -17,9 +17,6 @@ MainWindow::MainWindow(QWidget *parent) :
     akrz = new User("Adam Krzywaniak");
     wpog = new User("Wiktor Pogoda");
 
-    //create window for add item
-    itemWindow = new AddItemWindow(this);
-
     //set text color for red, green and black palletes
     red.setColor(QPalette::Text, Qt::red);
     green.setColor(QPalette::Text, Qt::darkGreen);
@@ -44,9 +41,6 @@ MainWindow::~MainWindow()
     //delete users
     delete akrz;
     delete wpog;
-
-    //delete add item window
-    delete itemWindow;
 
     delete ui;
 }
@@ -100,6 +94,8 @@ void MainWindow::on_AccountPercent_textChanged(const QString &value)
 
 void MainWindow::on_AddItem_clicked()
 {
+    //create window for add item
+    AddItemWindow *itemWindow = new AddItemWindow(this);
     itemWindow->show();
 
 }

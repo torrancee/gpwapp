@@ -15,6 +15,9 @@ Login::Login(QWidget *parent) :
                                            Qt::KeepAspectRatio));
 
     logsAndPass["superuser"] = "letmein";
+
+    connect(ui->LogIn, SIGNAL(returnPressed()), ui->GoIn, SLOT(click()));
+    connect(ui->Pass, SIGNAL(returnPressed()), ui->GoIn, SLOT(click()));
 }
 
 Login::~Login()

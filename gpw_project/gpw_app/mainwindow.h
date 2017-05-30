@@ -21,7 +21,6 @@ public:
     ~MainWindow();
     User *akrz, *wpog;
     QPalette red, green, black;
-    AddItemWindow *itemWindow;
     void addItemsToUsersComboBox();
     void setAllConnections();
 
