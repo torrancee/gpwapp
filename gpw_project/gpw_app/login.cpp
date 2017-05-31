@@ -18,6 +18,7 @@ Login::Login(QWidget *parent) :
 
     logsAndPass["superuser"] = "letmein";
 
+    //set up connection
     connect(ui->LogIn, SIGNAL(returnPressed()), ui->GoIn, SLOT(click()));
     connect(ui->Pass, SIGNAL(returnPressed()), ui->GoIn, SLOT(click()));
 }
@@ -29,16 +30,22 @@ Login::~Login()
 
 void Login::receiveUserData(QString login, QString pass)
 {
+    //add new user to logs and pass map
     logsAndPass[login] = pass;
 }
 
 void Login::on_GoIn_clicked()
 {
-      QString login = ui->LogIn->text();
       if((logsAndPass.find(ui->LogIn->text()) != logsAndPass.end()) && //find correct user in map
          (logsAndPass[ui->LogIn->text()] == ui->Pass->text())){        //and check if passwords are matching
                   hide();
                   MainWindow *main = new MainWindow(this);
+
+                  //connect and send user data to main window
+                  connect(this, SIGNAL(userData(QString)), main, SLOT(receiveUserData(QString)));
+                  emit userData(ui->LogIn->text());
+
+                  //main window main loop
                   main->show();
       }
       else

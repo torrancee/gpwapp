@@ -165,13 +165,13 @@
      <string/>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>280</x>
       <y>120</y>
       <width>171</width>
-      <height>110</height>
+      <height>114</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -209,7 +209,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -256,13 +256,13 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>460</x>
       <y>360</y>
       <width>621</width>
-      <height>24</height>
+      <height>25</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -317,7 +317,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -328,14 +328,14 @@
     </property>
     <layout class="QFormLayout" name="formLayout">
      <item row="0" column="0">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="logged">
        <property name="text">
         <string>Logged as:</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit"/>
+      <widget class="QLineEdit" name="userName"/>
      </item>
      <item row="1" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout">
@@ -359,26 +359,12 @@
    </widget>
    <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
    <zorder>ImportData</zorder>
    <zorder>stockChart</zorder>
-   <zorder>AddItem</zorder>
-   <zorder>EditPrice</zorder>
-   <zorder>SellItem</zorder>
-   <zorder>treeWidget</zorder>
    <zorder>PicLabel</zorder>
-   <zorder>Archive</zorder>
-   <zorder>ShowDetails</zorder>
-   <zorder>Details</zorder>
-   <zorder>treeWidget_2</zorder>
-   <zorder>OneWeek</zorder>
-   <zorder>OneMonth</zorder>
-   <zorder>ThreeMonths</zorder>
-   <zorder>SixMonth</zorder>
-   <zorder>OneYear</zorder>
-   <zorder>pushButton_6</zorder>
-   <zorder>All</zorder>
-   <zorder>label</zorder>
-   <zorder>lineEdit</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -386,7 +372,7 @@
      <x>0</x>
      <y>0</y>
      <width>1100</width>
-     <height>19</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

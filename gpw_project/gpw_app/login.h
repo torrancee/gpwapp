@@ -17,6 +17,9 @@ public:
     explicit Login(QWidget *parent = 0);
     ~Login();
 
+signals:
+    void userData(QString);
+
 public slots:
     void receiveUserData(QString, QString);
 

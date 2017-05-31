@@ -27,6 +27,7 @@ public:
 public slots:
 
     void putTheItemToList(QString name, QString price);
+    void receiveUserData(QString login);
 
 private slots:
 

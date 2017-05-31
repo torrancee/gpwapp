@@ -108,6 +108,11 @@ void MainWindow::putTheItemToList(QString name, QString price)
     akrz->stockItems.push_back(item);
 }
 
+void MainWindow::receiveUserData(QString login)
+{
+    ui->userName->setText(login);
+}
+
 void MainWindow::makePlot()
 {
     ui->stockChart->legend->setVisible(true);
