@@ -233,3 +233,12 @@ void MainWindow::makePlot()
     volumeAxisRect->setMarginGroup(QCP::msLeft|QCP::msRight, group);
 
 }
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox::information(this, "About", "Created by: \n"
+                                            "   Wiktor Pogoda \n"
+                                            "   Adam Krzywaniak \n\n"
+                                            "2017");
+
+}

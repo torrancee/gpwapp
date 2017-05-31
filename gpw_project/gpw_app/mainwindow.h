@@ -39,6 +39,8 @@ private slots:
 
     void on_AddItem_clicked();
 
+    void on_actionAbout_triggered();
+
 private:
     Ui::MainWindow *ui;
     std::vector<QTreeWidgetItem> items;
