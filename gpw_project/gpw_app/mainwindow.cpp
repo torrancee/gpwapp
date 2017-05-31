@@ -45,10 +45,18 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+/*
+ *  TODO: connect it with backend stock data import from website.
+ */
+
 void MainWindow::on_ImportData_clicked()
 {
     QMessageBox::warning(this, "Upsss", "Feature not available");
 }
+
+/*
+ *  TODO: create users in combobox from logsAndPass map
+ */
 
 void MainWindow::addItemsToUsersComboBox()
 {
@@ -92,6 +100,10 @@ void MainWindow::on_AccountPercent_textChanged(const QString &value)
     }
 }
 
+/*
+ *  Function create and show new window for add new stock item.
+ */
+
 void MainWindow::on_AddItem_clicked()
 {
     //create window for add item
@@ -100,13 +112,24 @@ void MainWindow::on_AddItem_clicked()
 
 }
 
+/*
+ * Function (slot) is called after AddItem button clicked.
+ * Current user should be checked and item should be added to the proper list.
+ *
+*/
+
 void MainWindow::putTheItemToList(QString name, QString price)
 {
+
     shared_ptr<QTreeWidgetItem> item = std::make_shared<QTreeWidgetItem>(ui->StockList);
     item->setText(0, name);
     item->setText(1, price);
     akrz->stockItems.push_back(item);
 }
+
+/*
+ *  Function (slot) receive login from login panel and set in login label
+ */
 
 void MainWindow::receiveUserData(QString login)
 {

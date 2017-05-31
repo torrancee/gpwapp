@@ -18,7 +18,7 @@ Login::Login(QWidget *parent) :
 
     logsAndPass["superuser"] = "letmein";
 
-    //set up connection
+    //set up connection for enter button clicked in login panel
     connect(ui->LogIn, SIGNAL(returnPressed()), ui->GoIn, SLOT(click()));
     connect(ui->Pass, SIGNAL(returnPressed()), ui->GoIn, SLOT(click()));
 }
@@ -33,6 +33,13 @@ void Login::receiveUserData(QString login, QString pass)
     //add new user to logs and pass map
     logsAndPass[login] = pass;
 }
+
+/*
+ *  Function called after GoIn button clicked.
+ *  Check if user is registered:
+ *                      if yes go to main window
+ *                      otherwise pop up warning message
+ */
 
 void Login::on_GoIn_clicked()
 {
@@ -51,6 +58,10 @@ void Login::on_GoIn_clicked()
       else
       {
                   QMessageBox::warning(this, "Upsss", "Inccorect user and password");
+
+                  //clear edit lines for login and pass
+                  ui->LogIn->setText("");
+                  ui->Pass->setText("");
       }
 }
 
