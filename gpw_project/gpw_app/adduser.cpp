@@ -32,14 +32,6 @@ AddUser::~AddUser()
 
 void AddUser::on_pushButton_clicked()
 {
-    QString password = ui->passEdit->text();
-    QRegularExpression patter1("[a-z]");
-    QRegularExpression patter2("[A-Z]");
-    QRegularExpression patter3("[$&+,:;=?@#|'<>.^*()%!-]");
-
-    qDebug() << password.count(patter1);
-    qDebug() << password.count(patter2);
-    qDebug() << password.count(patter3);
 
     if(ui->passEdit->text() == ui->confirmEdit->text()){ //check if password and confirm password label is same
         emit userData(ui->loginEdit->text(), ui->passEdit->text());
@@ -51,33 +43,40 @@ void AddUser::on_pushButton_clicked()
 }
 /*
  * TO BE REFACTORED
+ * KOMENTARZE W FUNKCJI DO INFORMACJI AKRZA i usunięcia
  */
 
 void AddUser::on_passEdit_textChanged(const QString &pass)
 {
-    static int totalProgress = 0;
+    // qDebug() << pass; //możesz odkomentować na potrzeby poznania działania f-cji
 
-    QString password = ui->passEdit->text();
-    QRegularExpression pattern1("[a-z]");
-    QRegularExpression pattern2("[A-Z]");
-    QRegularExpression pattern3("[$&+,:;=?@#|'<>.^*()%!-]");
+    static int totalProgress = 0; //int totalnego progresu - na początku równy zero, bo ten pasek progressu powinien zaczynać się od zera
+                                  // docelowo zakończyć się powinien na 100
 
-    if(pass.count(pattern1) == 1)
-        totalProgress+=15;
-    else if(pass.count(pattern1) == 2)
-        totalProgress+=15;
+    QRegularExpression pattern1("[a-z]"); //wyrażenie regularne określające zbiór wszystkich małych liter
+    QRegularExpression pattern2("[A-Z]"); //wyrażenie regularne określające zbiór wszystkich dużych liter
+    QRegularExpression pattern3("[$&+,:;=?@#|'<>.^*()%!-]"); //wyrażenie regularne określające zbiór znaków specjalnych
+
+    if(pass.count(pattern1) == 1) //gdy znajdziemy w naszym stringu 1 mała literę ...
+        totalProgress+=15;       // ... to dodajemy do progresu 15
+    else if(pass.count(pattern1) == 2) //gdy znajdziemy dwie małe litery
+        totalProgress+=15;              // ... to dodajemy do progresu kolejne 15
     else if(pass.count(pattern2) == 1)
         totalProgress+=15;
-    else if(pass.count(pattern2) == 2)
+    else if(pass.count(pattern2) == 2) // reszta analogicznie
         totalProgress+=15;
     else if(pass.count(pattern3) == 1)
         totalProgress+=15;
     else if(pass.count(pattern3) == 2)
         totalProgress+=15;
-    else if(pass.length() == 8)
-        totalProgress+=10;
+    else if(pass.length() == 8) // gdy string ma 8 znaków
+        totalProgress+=10;     //  to dodajemy 10
 
-    ui->progressBar->setValue(totalProgress);
+    ui->progressBar->setValue(totalProgress); // ui -> wskaźnik do user interface, czyli naszego GUI
+                                              // progressBar -> to jest ten zielony pasek postępu w interfejsie
+                                              // setValue -> funkcja która ustawia wartośc total progress
+                                              // jak podmienisz sobie setValue(totalProgress) na setValue(69) to zobaczysz, że nic się nie będzie zmieniać
+                                              // a pasek postępu będzie stał w miejscu na 69%
 }
 
 void AddUser::on_progressBar_valueChanged(int value)
