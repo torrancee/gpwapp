@@ -2,6 +2,7 @@
 #define ADDUSER_H
 
 #include <QDialog>
+#include <QPalette>
 
 namespace Ui {
 class AddUser;
@@ -22,8 +23,13 @@ signals:
 private slots:
     void on_pushButton_clicked();
 
+    void on_passEdit_textChanged(const QString &pass);
+
+    void on_progressBar_valueChanged(int value);
+
 private:
     Ui::AddUser *ui;
+    QPalette red;
 
 };
 
