@@ -7,6 +7,7 @@
 #include <user.h>
 #include "additemwindow.h"
 #include <vector>
+#include <map>
 
 namespace Ui {
 class MainWindow;
@@ -21,13 +22,13 @@ public:
     ~MainWindow();
     User *akrz, *wpog;
     QPalette red, green, black;
-    void addItemsToUsersComboBox();
+    void addItemsToUsersComboBox(std::map<QString, QString>&);
     void setAllConnections();
 
 public slots:
 
     void putTheItemToList(QString name, QString price);
-    void receiveUserData(QString login);
+    void receiveUserData(QString login, std::map<QString, QString>);
 
 private slots:
 

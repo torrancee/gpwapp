@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    addItemsToUsersComboBox();
+    //addItemsToUsersComboBox();
     setAllConnections();
 
     //create users
@@ -58,9 +58,11 @@ void MainWindow::on_ImportData_clicked()
  *  TODO: create users in combobox from logsAndPass map
  */
 
-void MainWindow::addItemsToUsersComboBox()
+void MainWindow::addItemsToUsersComboBox(std::map<QString, QString>& logsAndPass)
 {
-    ui->UsersComboBox->addItems({"none", "AKRZ", "WPOG"});
+    for(auto &temp : logsAndPass){
+        ui->UsersComboBox->addItem(temp.first);
+    }
 }
 
 void MainWindow::setAllConnections()
@@ -131,9 +133,10 @@ void MainWindow::putTheItemToList(QString name, QString price)
  *  Function (slot) receive login from login panel and set in login label
  */
 
-void MainWindow::receiveUserData(QString login)
+void MainWindow::receiveUserData(QString login, std::map<QString, QString> logsAndPass)
 {
     ui->userName->setText(login);
+    addItemsToUsersComboBox(logsAndPass);
 }
 
 void MainWindow::makePlot()

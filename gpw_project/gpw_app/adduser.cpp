@@ -17,6 +17,12 @@ AddUser::AddUser(QWidget *parent) :
     ui->pic->setPixmap(picture.scaled(ui->pic->width(),
                                            ui->pic->height(),
                                            Qt::KeepAspectRatio));
+
+    // http://www.qtcentre.org/threads/56235-could-not-change-QProgressBar-color
+    // to be tested on Linux machine
+    red.setBrush(QPalette::Highlight, QBrush(QColor("red")));
+    ui->progressBar->setPalette(red);
+
 }
 
 AddUser::~AddUser()

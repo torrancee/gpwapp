@@ -49,8 +49,9 @@ void Login::on_GoIn_clicked()
                   MainWindow *main = new MainWindow(this);
 
                   //connect and send user data to main window
-                  connect(this, SIGNAL(userData(QString)), main, SLOT(receiveUserData(QString)));
-                  emit userData(ui->LogIn->text());
+                  connect(this, SIGNAL(userData(QString, std::map<QString, QString>)),
+                          main, SLOT(receiveUserData(QString, std::map<QString, QString>)));
+                  emit userData(ui->LogIn->text(), logsAndPass);
 
                   //main window main loop
                   main->show();

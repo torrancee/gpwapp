@@ -18,7 +18,7 @@ public:
     ~Login();
 
 signals:
-    void userData(QString);
+    void userData(QString, std::map<QString, QString>);
 
 public slots:
     void receiveUserData(QString, QString);
