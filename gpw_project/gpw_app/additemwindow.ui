@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>343</width>
-    <height>141</height>
+    <width>567</width>
+    <height>200</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,7 +36,7 @@
      <item row="1" column="1">
       <widget class="QLineEdit" name="PricEdit"/>
      </item>
-     <item row="2" column="0" colspan="2">
+     <item row="2" column="4">
       <widget class="QDialogButtonBox" name="buttonBox">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -45,6 +45,26 @@
         <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
        </property>
       </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="volume">
+       <property name="text">
+        <string>Volume</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QLineEdit" name="lineEdit_2"/>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="date">
+       <property name="text">
+        <string>Date</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QDateEdit" name="dateEdit"/>
      </item>
     </layout>
    </item>

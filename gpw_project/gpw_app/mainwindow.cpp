@@ -31,6 +31,13 @@ MainWindow::MainWindow(QWidget *parent) :
     //set header names in stock list
     ui->StockList->setHeaderLabels({"NAME", "PRICE"});
 
+    //set header names in details view
+    ui->detailsTree->setHeaderLabels({"DATE", "VOLUME", "VALUE", "%"});
+
+    //set header names in details view
+    ui->archiveTree->setHeaderLabels({"DATE", "VOLUME", "VALUE", "%"});
+
+
     QPixmap picture(":/img/gpwapp.png");
     ui->PicLabel->setPixmap(picture);
 
