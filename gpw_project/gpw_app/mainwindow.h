@@ -27,7 +27,7 @@ public:
 
 public slots:
 
-    void putTheItemToList(QString name, QString price);
+    void putTheItemToList(InputData);
     void receiveUserData(QString login, std::map<QString, QString>);
 
 private slots:

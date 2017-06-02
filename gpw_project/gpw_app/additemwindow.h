@@ -2,6 +2,15 @@
 #define ADDITEMWINDOW_H
 
 #include <QDialog>
+#include <QDate>
+
+struct InputData{
+
+    QString name;
+    QString price;
+    QDate date;
+    QString volume;
+};
 
 namespace Ui {
 class AddItemWindow;
@@ -12,7 +21,7 @@ class AddItemWindow : public QDialog
     Q_OBJECT
 
 signals:
-    void mySignal(QString name, QString price);
+    void mySignal(InputData data);
 
 public:
     explicit AddItemWindow(QWidget *parent = 0);
@@ -25,7 +34,7 @@ private slots:
 
 private:
     Ui::AddItemWindow *ui;
-    void sendTheListOfStocks(QString name, QString price);
+    void sendTheListOfStocks(InputData);
 
 };
 

@@ -6,7 +6,10 @@ AddItemWindow::AddItemWindow(QWidget *parent) :
     ui(new Ui::AddItemWindow)
 {
     ui->setupUi(this);
-    connect(this, SIGNAL(mySignal(QString,QString)), parent, SLOT(putTheItemToList(QString, QString)));
+    connect(this, SIGNAL(mySignal(InputData)), parent, SLOT(putTheItemToList(InputData)));
+
+    //set date
+    ui->dateEdit->setDate(QDate::currentDate());
 }
 
 AddItemWindow::~AddItemWindow()
@@ -16,12 +19,15 @@ AddItemWindow::~AddItemWindow()
 
 void AddItemWindow::on_buttonBox_accepted()
 {
-    name = ui->NameEdit->text();
-    price = ui->PricEdit->text();
-    sendTheListOfStocks(name, price);
+    InputData data;
+    data.name = ui->NameEdit->text();
+    data.price = ui->PricEdit->text();
+    data.volume = ui->volumeEdit->text();
+    data.date = ui->dateEdit->date();
+    sendTheListOfStocks(data);
 }
 
-void AddItemWindow::sendTheListOfStocks(QString name, QString price)
+void AddItemWindow::sendTheListOfStocks(InputData data)
 {
-    emit mySignal(name, price);
+    emit mySignal(data);
 }

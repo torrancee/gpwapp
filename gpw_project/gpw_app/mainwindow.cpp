@@ -127,13 +127,20 @@ void MainWindow::on_AddItem_clicked()
  *
 */
 
-void MainWindow::putTheItemToList(QString name, QString price)
+void MainWindow::putTheItemToList(InputData data)
 {
 
-    shared_ptr<QTreeWidgetItem> item = std::make_shared<QTreeWidgetItem>(ui->StockList);
-    item->setText(0, name);
-    item->setText(1, price);
-    akrz->stockItems.push_back(item);
+    //shared_ptr<QTreeWidgetItem> item = std::make_shared<QTreeWidgetItem>(ui->StockList);
+    QTreeWidgetItem *itemStockList =  new QTreeWidgetItem(ui->StockList);
+    itemStockList->setText(0, data.name);
+    itemStockList->setText(1, data.price);
+
+    QTreeWidgetItem  *itemDetails = new QTreeWidgetItem(ui->detailsTree);
+    itemDetails->setText(0, data.date.toString("dd.MM.yyyy"));
+    itemDetails->setText(1, data.volume);
+
+
+    //akrz->stockItems.push_back(item);
 }
 
 /*
