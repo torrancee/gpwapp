@@ -10,6 +10,9 @@ AddItemWindow::AddItemWindow(QWidget *parent) :
 
     //set date
     ui->dateEdit->setDate(QDate::currentDate());
+
+    //add items to comboBox
+    addStocksToComboBox();
 }
 
 AddItemWindow::~AddItemWindow()
@@ -20,7 +23,7 @@ AddItemWindow::~AddItemWindow()
 void AddItemWindow::on_buttonBox_accepted()
 {
     InputData data;
-    data.name = ui->NameEdit->text();
+    data.name = ui->comboBox->currentText();
     data.price = ui->PricEdit->text();
     data.volume = ui->volumeEdit->text();
     data.date = ui->dateEdit->date();
@@ -30,4 +33,10 @@ void AddItemWindow::on_buttonBox_accepted()
 void AddItemWindow::sendTheListOfStocks(InputData data)
 {
     emit mySignal(data);
+}
+
+void AddItemWindow::addStocksToComboBox()
+{
+    //to be filled from file
+    ui->comboBox->addItems({"SFINKS", "KERNEL", "CDPROJECT", "CORMAY", "FON"});
 }

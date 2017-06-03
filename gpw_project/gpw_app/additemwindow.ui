@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>729</width>
+    <width>426</width>
     <height>126</height>
    </rect>
   </property>
@@ -16,15 +16,15 @@
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="Name">
+     <item row="1" column="2">
+      <widget class="QLabel" name="volume">
        <property name="text">
-        <string>Name</string>
+        <string>Volume</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="NameEdit"/>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="PricEdit"/>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="Price">
@@ -33,23 +33,10 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="PricEdit"/>
-     </item>
-     <item row="2" column="4">
-      <widget class="QDialogButtonBox" name="buttonBox">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="standardButtons">
-        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
-      <widget class="QLabel" name="volume">
+     <item row="0" column="0">
+      <widget class="QLabel" name="Name">
        <property name="text">
-        <string>Volume</string>
+        <string>Name</string>
        </property>
       </widget>
      </item>
@@ -65,6 +52,19 @@
      </item>
      <item row="0" column="4">
       <widget class="QDateEdit" name="dateEdit"/>
+     </item>
+     <item row="2" column="4">
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="comboBox"/>
      </item>
     </layout>
    </item>
