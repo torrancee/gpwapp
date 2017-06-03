@@ -29,7 +29,7 @@ private slots:
 
 private:
     Ui::AddUser *ui;
-    QPalette red;
+    QPalette red, green, yellow;
 
 };
 

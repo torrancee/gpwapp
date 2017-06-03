@@ -18,10 +18,10 @@ AddUser::AddUser(QWidget *parent) :
                                            ui->pic->height(),
                                            Qt::KeepAspectRatio));
 
-    // http://www.qtcentre.org/threads/56235-could-not-change-QProgressBar-color
-    // to be tested on Linux machine
-    red.setBrush(QPalette::Highlight, QBrush(QColor("red")));
-    ui->progressBar->setPalette(red);
+    // colors for progress bar
+    red.setBrush(QPalette::Highlight, QBrush(QColor("red")));   
+    green.setBrush(QPalette::Highlight, QBrush(QColor("green")));
+    yellow.setBrush(QPalette::Highlight, QBrush(QColor("yellow")));
 
 }
 
@@ -81,5 +81,10 @@ void AddUser::on_passEdit_textChanged(const QString &pass)
 
 void AddUser::on_progressBar_valueChanged(int value)
 {
-
+    if(value <= 30)
+        ui->progressBar->setPalette(red);
+    else if(value > 30 && value < 80)
+        ui->progressBar->setPalette(yellow);
+    else if(value >=80)
+        ui->progressBar->setPalette(green);
 }

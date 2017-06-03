@@ -26,13 +26,13 @@
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>11</x>
      <y>31</y>
      <width>231</width>
-     <height>132</height>
+     <height>138</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -80,6 +80,9 @@
        <widget class="QProgressBar" name="progressBar">
         <property name="value">
          <number>0</number>
+        </property>
+        <property name="textVisible">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
