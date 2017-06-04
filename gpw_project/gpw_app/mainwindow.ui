@@ -171,7 +171,7 @@
       <x>280</x>
       <y>120</y>
       <width>171</width>
-      <height>114</height>
+      <height>138</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -181,6 +181,13 @@
         <widget class="QPushButton" name="AddItem">
          <property name="text">
           <string>Add Item</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buyItem">
+         <property name="text">
+          <string>Buy Item</string>
          </property>
         </widget>
        </item>
@@ -323,7 +330,7 @@
       <x>280</x>
       <y>10</y>
       <width>171</width>
-      <height>50</height>
+      <height>54</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -372,7 +379,7 @@
      <x>0</x>
      <y>0</y>
      <width>1100</width>
-     <height>21</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuInfo">

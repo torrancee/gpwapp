@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     additemwindow.cpp \
     stockitem.cpp \
     qcustomplot.cpp \
-    adduser.cpp
+    adduser.cpp \
+    buyitem.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
@@ -38,12 +39,14 @@ HEADERS  += mainwindow.h \
     additemwindow.h \
     stockitem.h \
     qcustomplot.h \
-    adduser.h
+    adduser.h \
+    buyitem.h
 
 FORMS    += mainwindow.ui \
     login.ui \
     additemwindow.ui \
-    adduser.ui
+    adduser.ui \
+    buyitem.ui
 
 RESOURCES += \
     resources.qrc

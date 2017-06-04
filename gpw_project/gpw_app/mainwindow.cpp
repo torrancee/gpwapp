@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <QDate>
+#include <buyitem.h>
 
 using std::shared_ptr;
 
@@ -76,6 +77,7 @@ void MainWindow::setAllConnections()
 {
     connect(ui->UsersComboBox,SIGNAL(currentTextChanged(QString)), ui->AccountValue, SLOT(setText(QString)));
     connect(ui->UsersComboBox,SIGNAL(currentTextChanged(QString)), ui->AccountPercent, SLOT(setText(QString)));
+
 }
 
 void MainWindow::on_AccountValue_textChanged(const QString &value)
@@ -139,8 +141,6 @@ void MainWindow::putTheItemToList(InputData data)
     itemDetails->setText(0, data.date.toString("dd.MM.yyyy"));
     itemDetails->setText(1, data.volume);
 
-
-    //akrz->stockItems.push_back(item);
 }
 
 /*
@@ -258,4 +258,11 @@ void MainWindow::on_actionAbout_triggered()
                                             "   Adam Krzywaniak \n\n"
                                             "2017");
 
+}
+
+void MainWindow::on_buyItem_clicked()
+{
+    BuyItem buyItem(this);
+    buyItem.setModal(true);
+    buyItem.exec();
 }
