@@ -1,6 +1,7 @@
 #include "additemwindow.h"
 #include "ui_additemwindow.h"
 #include "addname.h"
+#include "func.h"
 #include <QFile>
 #include <QDebug>
 #include <QTextStream>
@@ -78,19 +79,19 @@ void AddItemWindow::addStocksToComboBox()
 
 }
 
-QString AddItemWindow::createPathToFile(QString file)
-{
-    QString path = QDir::currentPath();
-    int position;
-    for(QString::iterator it = path.end(); *it!= '/'; it--){
+//QString AddItemWindow::createPathToFile(QString file)
+//{
+//    QString path = QDir::currentPath();
+//    int position;
+//    for(QString::iterator it = path.end(); *it!= '/'; it--){
 
-        position = path.indexOf(*it);
-    }
-    path.remove(position, 50);
-    QString pathToFile = path + "gpw_app/txt/" + file;
+//        position = path.indexOf(*it);
+//    }
+//    path.remove(position, 50);
+//    QString pathToFile = path + "gpw_app/txt/" + file;
 
-    return pathToFile;
-}
+//    return pathToFile;
+//}
 
 void AddItemWindow::on_addName_clicked()
 {

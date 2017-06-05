@@ -5,6 +5,8 @@
 #include <QString>
 #include <QMessageBox>
 #include <QPixmap>
+#include <QFile>
+#include <QTextStream>
 
 Login::Login(QWidget *parent) :
     QWidget(parent),
@@ -56,8 +58,7 @@ void Login::on_GoIn_clicked()
                   //main window main loop
                   main->show();
       }
-      else
-      {
+      else{
                   QMessageBox::warning(this, "Upsss", "Inccorect user and password");
 
                   //clear edit lines for login and pass

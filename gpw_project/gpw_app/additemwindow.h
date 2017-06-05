@@ -41,7 +41,7 @@ private:
     Ui::AddItemWindow *ui;
     void sendTheListOfStocks(InputData);
     void addStocksToComboBox();
-    QString createPathToFile(QString file);
+    // QString createPathToFile(QString file);
 
 };
 

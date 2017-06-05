@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     qcustomplot.cpp \
     adduser.cpp \
     buyitem.cpp \
-    addname.cpp
+    addname.cpp \
+    func.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
@@ -42,7 +43,8 @@ HEADERS  += mainwindow.h \
     qcustomplot.h \
     adduser.h \
     buyitem.h \
-    addname.h
+    addname.h \
+    func.h
 
 FORMS    += mainwindow.ui \
     login.ui \
