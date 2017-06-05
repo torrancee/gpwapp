@@ -59,17 +59,17 @@ void AddUser::on_passEdit_textChanged(const QString &pass)
 
     if(pass.count(pattern1) == 1) //gdy znajdziemy w naszym stringu 1 mała literę ...
         totalProgress+=15;       // ... to dodajemy do progresu 15
-    else if(pass.count(pattern1) == 2) //gdy znajdziemy dwie małe litery
-        totalProgress+=15;              // ... to dodajemy do progresu kolejne 15
-    else if(pass.count(pattern2) == 1)
+    else if(pass.count(pattern1) >= 2) //gdy znajdziemy dwie małe litery
+        totalProgress+=30;              // ... to dodajemy do progresu kolejne 15
+    if(pass.count(pattern2) == 1)
         totalProgress+=15;
-    else if(pass.count(pattern2) == 2) // reszta analogicznie
+    else if(pass.count(pattern2) >= 2) // reszta analogicznie
+        totalProgress+=30;
+    if(pass.count(pattern3) == 1)
         totalProgress+=15;
-    else if(pass.count(pattern3) == 1)
-        totalProgress+=15;
-    else if(pass.count(pattern3) == 2)
-        totalProgress+=15;
-    else if(pass.length() == 8) // gdy string ma 8 znaków
+    else if(pass.count(pattern3) >= 2)
+        totalProgress+=30;
+    if(pass.length() >= 8) // gdy string ma 8 znaków
         totalProgress+=10;     //  to dodajemy 10
 
     ui->progressBar->setValue(totalProgress); // ui -> wskaźnik do user interface, czyli naszego GUI
