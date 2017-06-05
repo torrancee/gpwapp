@@ -21,7 +21,6 @@ Login::Login(QWidget *parent) :
                                            Qt::KeepAspectRatio));
 
     getLogsAndPassFromFile();
-    logsAndPass["superuser"] = "letmein";
 
     //set up connection for enter button clicked in login panel
     connect(ui->LogIn, SIGNAL(returnPressed()), ui->GoIn, SLOT(click()));
@@ -79,6 +78,19 @@ void Login::on_AddNew_clicked()
 
 void Login::getLogsAndPassFromFile()
 {
-    QString path =  createPathToFile("logsandpass.txt");
-    qDebug() << path;
+    QString pathToFile =  createPathToFile("logsandpass.txt");
+    QFile inputLogin(pathToFile);
+
+    if (!inputLogin.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    QTextStream in(&inputLogin);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList logAndPass = line.split(" ");
+
+        logsAndPass[logAndPass.at(0)] = logAndPass.at(1);
+    }
+
+    inputLogin.close();
 }

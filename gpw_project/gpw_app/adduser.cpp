@@ -50,7 +50,7 @@ void AddUser::on_passEdit_textChanged(const QString &pass)
 {
     // qDebug() << pass; //możesz odkomentować na potrzeby poznania działania f-cji
 
-    static int totalProgress = 0; //int totalnego progresu - na początku równy zero, bo ten pasek progressu powinien zaczynać się od zera
+    int totalProgress = 0; //int totalnego progresu - na początku równy zero, bo ten pasek progressu powinien zaczynać się od zera
                                   // docelowo zakończyć się powinien na 100
 
     QRegularExpression pattern1("[a-z]"); //wyrażenie regularne określające zbiór wszystkich małych liter
