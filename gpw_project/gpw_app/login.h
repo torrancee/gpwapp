@@ -31,6 +31,7 @@ private slots:
 private:
     Ui::Login *ui;
     std::map<QString, QString> logsAndPass;
+    void getLogsAndPassFromFile();
 
 };
 

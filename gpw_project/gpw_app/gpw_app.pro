@@ -54,5 +54,4 @@ FORMS    += mainwindow.ui \
     addname.ui
 
 RESOURCES += \
-    resources.qrc \
-    txt.qrc
+    resources.qrc

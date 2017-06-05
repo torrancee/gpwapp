@@ -79,20 +79,6 @@ void AddItemWindow::addStocksToComboBox()
 
 }
 
-//QString AddItemWindow::createPathToFile(QString file)
-//{
-//    QString path = QDir::currentPath();
-//    int position;
-//    for(QString::iterator it = path.end(); *it!= '/'; it--){
-
-//        position = path.indexOf(*it);
-//    }
-//    path.remove(position, 50);
-//    QString pathToFile = path + "gpw_app/txt/" + file;
-
-//    return pathToFile;
-//}
-
 void AddItemWindow::on_addName_clicked()
 {
     AddName newName(this);

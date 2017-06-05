@@ -1,9 +1,11 @@
 #include "login.h"
 #include "mainwindow.h"
 #include "adduser.h"
+#include "func.h"
 #include "ui_login.h"
 #include <QString>
 #include <QMessageBox>
+#include <QDebug>
 #include <QPixmap>
 #include <QFile>
 #include <QTextStream>
@@ -18,6 +20,7 @@ Login::Login(QWidget *parent) :
                                            ui->PicLabel->height(),
                                            Qt::KeepAspectRatio));
 
+    getLogsAndPassFromFile();
     logsAndPass["superuser"] = "letmein";
 
     //set up connection for enter button clicked in login panel
@@ -72,4 +75,10 @@ void Login::on_AddNew_clicked()
       AddUser newuser(this);
       newuser.setModal(true);
       newuser.exec();
+}
+
+void Login::getLogsAndPassFromFile()
+{
+    QString path =  createPathToFile("logsandpass.txt");
+    qDebug() << path;
 }

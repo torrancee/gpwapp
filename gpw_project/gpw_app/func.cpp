@@ -3,7 +3,7 @@
 
 QString createPathToFile(QString file)
 {
-    qDebug() << "createPathToFile";
+    // qDebug() << "createPathToFile";
     QString path = QDir::currentPath();
     int position;
     for(QString::iterator it = path.end(); *it!= '/'; it--){
