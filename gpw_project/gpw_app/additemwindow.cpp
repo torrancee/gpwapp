@@ -1,5 +1,8 @@
 #include "additemwindow.h"
 #include "ui_additemwindow.h"
+#include <QFile>
+#include <QDebug>
+#include <QTextStream>
 
 AddItemWindow::AddItemWindow(QWidget *parent) :
     QDialog(parent),
@@ -35,8 +38,20 @@ void AddItemWindow::sendTheListOfStocks(InputData data)
     emit mySignal(data);
 }
 
+/*
+ *  Read list of stocks from file and add it to user combo box
+ */
+
 void AddItemWindow::addStocksToComboBox()
 {
-    //to be filled from file
-    ui->comboBox->addItems({"SFINKS", "KERNEL", "CDPROJECT", "CORMAY", "FON"});
+
+    QFile inputStocks(":/txt/stocks.txt");
+    if (!inputStocks.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    QTextStream in(&inputStocks);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        ui->comboBox->addItem(line);
+    }
 }

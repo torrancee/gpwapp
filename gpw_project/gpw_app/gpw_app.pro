@@ -49,4 +49,5 @@ FORMS    += mainwindow.ui \
     buyitem.ui
 
 RESOURCES += \
-    resources.qrc
+    resources.qrc \
+    txt.qrc
