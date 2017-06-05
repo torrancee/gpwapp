@@ -1,8 +1,10 @@
 #include "additemwindow.h"
 #include "ui_additemwindow.h"
+#include "addname.h"
 #include <QFile>
 #include <QDebug>
 #include <QTextStream>
+#include <QDir>
 
 AddItemWindow::AddItemWindow(QWidget *parent) :
     QDialog(parent),
@@ -21,6 +23,22 @@ AddItemWindow::AddItemWindow(QWidget *parent) :
 AddItemWindow::~AddItemWindow()
 {
     delete ui;
+}
+
+void AddItemWindow::newName(QString name)
+{
+    ui->comboBox->addItem(name);
+
+    QString pathToFile = createPathToFile("stocks.txt");
+    QFile file(pathToFile);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Append))
+    {   qDebug() << "cannot open";
+        return; }
+
+    QTextStream out(&file);
+    out << name << endl;
+    file.flush();
+    file.close();
 }
 
 void AddItemWindow::on_buttonBox_accepted()
@@ -44,8 +62,9 @@ void AddItemWindow::sendTheListOfStocks(InputData data)
 
 void AddItemWindow::addStocksToComboBox()
 {
+    QString pathToFile = createPathToFile("stocks.txt");
+    QFile inputStocks(pathToFile);
 
-    QFile inputStocks(":/txt/stocks.txt");
     if (!inputStocks.open(QIODevice::ReadOnly | QIODevice::Text))
         return;
 
@@ -54,4 +73,28 @@ void AddItemWindow::addStocksToComboBox()
         QString line = in.readLine();
         ui->comboBox->addItem(line);
     }
+
+    inputStocks.close();
+
+}
+
+QString AddItemWindow::createPathToFile(QString file)
+{
+    QString path = QDir::currentPath();
+    int position;
+    for(QString::iterator it = path.end(); *it!= '/'; it--){
+
+        position = path.indexOf(*it);
+    }
+    path.remove(position, 50);
+    QString pathToFile = path + "gpw_app/txt/" + file;
+
+    return pathToFile;
+}
+
+void AddItemWindow::on_addName_clicked()
+{
+    AddName newName(this);
+    newName.setModal(true);
+    newName.exec();
 }

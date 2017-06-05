@@ -29,13 +29,19 @@ public:
     QString name;
     QString price;
 
+public slots:
+    void newName(QString name);
+
 private slots:
     void on_buttonBox_accepted();
+
+    void on_addName_clicked();
 
 private:
     Ui::AddItemWindow *ui;
     void sendTheListOfStocks(InputData);
     void addStocksToComboBox();
+    QString createPathToFile(QString file);
 
 };
 

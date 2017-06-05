@@ -66,6 +66,13 @@
      <item row="0" column="1">
       <widget class="QComboBox" name="comboBox"/>
      </item>
+     <item row="2" column="1">
+      <widget class="QPushButton" name="addName">
+       <property name="text">
+        <string>ADD NAME</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>
