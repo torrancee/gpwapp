@@ -36,6 +36,20 @@ void Login::receiveUserData(QString login, QString pass)
 {
     //add new user to logs and pass map
     logsAndPass[login] = pass;
+
+    QString pathToFile = createPathToFile("logsandpass.txt");
+    QFile outputUserFile(pathToFile);
+    if (!outputUserFile.open(QIODevice::WriteOnly | QIODevice::Append))
+    {
+        qDebug() << "cannot open";
+        return;
+    }
+
+    QTextStream out(&outputUserFile);
+    out << login << " " << pass << endl;
+    outputUserFile.flush();
+    outputUserFile.close();
+
 }
 
 /*

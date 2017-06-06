@@ -1,7 +1,7 @@
 #ifndef FUNC_H
 #define FUNC_H
 
-//This fail contains usefull functions for global usage
+//This file contains usefull functions for global usage
 
 #include <QString>
 #include <QDir>
