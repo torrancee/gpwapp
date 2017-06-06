@@ -132,14 +132,21 @@ void MainWindow::on_AddItem_clicked()
 void MainWindow::putTheItemToList(InputData data)
 {
 
-    //shared_ptr<QTreeWidgetItem> item = std::make_shared<QTreeWidgetItem>(ui->StockList);
-    QTreeWidgetItem *itemStockList =  new QTreeWidgetItem(ui->StockList);
-    itemStockList->setText(0, data.name);
-    itemStockList->setText(1, data.price);
+    if(ui->StockList->findItems(data.name, Qt::MatchFixedString).length() != 0){
 
-    QTreeWidgetItem  *itemDetails = new QTreeWidgetItem(ui->detailsTree);
-    itemDetails->setText(0, data.date.toString("dd.MM.yyyy"));
-    itemDetails->setText(1, data.volume);
+        QMessageBox::warning(this, "Ups", "Item already exist");
+    }
+    else{
+        //shared_ptr<QTreeWidgetItem> item = std::make_shared<QTreeWidgetItem>(ui->StockList);
+        QTreeWidgetItem *itemStockList =  new QTreeWidgetItem(ui->StockList);
+        itemStockList->setText(0, data.name);
+        itemStockList->setText(1, data.price);
+
+        QTreeWidgetItem  *itemDetails = new QTreeWidgetItem(ui->detailsTree);
+        itemDetails->setText(0, data.date.toString("dd.MM.yyyy"));
+        itemDetails->setText(1, data.volume);
+    }
+
 
 }
 
