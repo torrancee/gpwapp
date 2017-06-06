@@ -1,6 +1,8 @@
 #ifndef ADDUSER_H
 #define ADDUSER_H
 
+#define PASSWORD_STRONG_ENOUGH 100
+
 #include <QDialog>
 #include <QPalette>
 
@@ -30,6 +32,7 @@ private slots:
 private:
     Ui::AddUser *ui;
     QPalette red, green, yellow;
+    int passwordStrength;
 
 };
 
