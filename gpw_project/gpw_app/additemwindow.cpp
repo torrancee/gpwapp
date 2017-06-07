@@ -14,9 +14,6 @@ AddItemWindow::AddItemWindow(QWidget *parent) :
     ui->setupUi(this);
     connect(this, SIGNAL(mySignal(InputData)), parent, SLOT(putTheItemToList(InputData)));
 
-    //set date
-    ui->dateEdit->setDate(QDate::currentDate());
-
     //add items to comboBox
     addStocksToComboBox();
 }
@@ -47,8 +44,6 @@ void AddItemWindow::on_buttonBox_accepted()
     InputData data;
     data.name = ui->comboBox->currentText();
     data.price = ui->PricEdit->text();
-    data.volume = ui->volumeEdit->text();
-    data.date = ui->dateEdit->date();
     sendTheListOfStocks(data);
 }
 
@@ -60,7 +55,6 @@ void AddItemWindow::sendTheListOfStocks(InputData data)
 /*
  *  Read list of stocks from file and add it to user combo box
  */
-
 void AddItemWindow::addStocksToComboBox()
 {
     QString pathToFile = createPathToFile("stocks.txt");

@@ -137,17 +137,10 @@ void MainWindow::putTheItemToList(InputData data)
         QMessageBox::warning(this, "Ups", "Item already exist");
     }
     else{
-        //shared_ptr<QTreeWidgetItem> item = std::make_shared<QTreeWidgetItem>(ui->StockList);
         QTreeWidgetItem *itemStockList =  new QTreeWidgetItem(ui->StockList);
         itemStockList->setText(0, data.name);
         itemStockList->setText(1, data.price);
-
-        QTreeWidgetItem  *itemDetails = new QTreeWidgetItem(ui->detailsTree);
-        itemDetails->setText(0, data.date.toString("dd.MM.yyyy"));
-        itemDetails->setText(1, data.volume);
     }
-
-
 }
 
 /*

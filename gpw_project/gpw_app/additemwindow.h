@@ -8,8 +8,6 @@ struct InputData{
 
     QString name;
     QString price;
-    QDate date;
-    QString volume;
 };
 
 namespace Ui {

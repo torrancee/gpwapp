@@ -41,42 +41,30 @@ void AddUser::on_pushButton_clicked()
         QMessageBox::warning(this, "Warning", "Incorrect data");
     }
 }
-/*
- * TO BE REFACTORED
- * KOMENTARZE W FUNKCJI DO INFORMACJI AKRZA i usunięcia
- */
 
 void AddUser::on_passEdit_textChanged(const QString &pass)
 {
-    // qDebug() << pass; //możesz odkomentować na potrzeby poznania działania f-cji
+    passwordStrength = 0;
+    QRegularExpression pattern1("[a-z]");
+    QRegularExpression pattern2("[A-Z]");
+    QRegularExpression pattern3("[$&+,:;=?@#|'<>.^*()%!-]");
 
-    passwordStrength = 0; //int totalnego progresu - na początku równy zero, bo ten pasek progressu powinien zaczynać się od zera
-                                  // docelowo zakończyć się powinien na 100
-
-    QRegularExpression pattern1("[a-z]"); //wyrażenie regularne określające zbiór wszystkich małych liter
-    QRegularExpression pattern2("[A-Z]"); //wyrażenie regularne określające zbiór wszystkich dużych liter
-    QRegularExpression pattern3("[$&+,:;=?@#|'<>.^*()%!-]"); //wyrażenie regularne określające zbiór znaków specjalnych
-
-    if(pass.count(pattern1) == 1) //gdy znajdziemy w naszym stringu 1 mała literę ...
-        passwordStrength +=15;       // ... to dodajemy do progresu 15
-    else if(pass.count(pattern1) >= 2) //gdy znajdziemy dwie małe litery
-        passwordStrength +=30;              // ... to dodajemy do progresu kolejne 15
+    if(pass.count(pattern1) == 1)
+        passwordStrength +=15;
+    else if(pass.count(pattern1) >= 2)
+        passwordStrength +=30;
     if(pass.count(pattern2) == 1)
         passwordStrength +=15;
-    else if(pass.count(pattern2) >= 2) // reszta analogicznie
+    else if(pass.count(pattern2) >= 2)
         passwordStrength +=30;
     if(pass.count(pattern3) == 1)
         passwordStrength +=15;
     else if(pass.count(pattern3) >= 2)
         passwordStrength +=30;
-    if(pass.length() >= 8) // gdy string ma 8 znaków
-        passwordStrength +=10;     //  to dodajemy 10
+    if(pass.length() >= 8)
+        passwordStrength +=10;
 
-    ui->progressBar->setValue(passwordStrength); // ui -> wskaźnik do user interface, czyli naszego GUI
-                                              // progressBar -> to jest ten zielony pasek postępu w interfejsie
-                                              // setValue -> funkcja która ustawia wartośc total progress
-                                              // jak podmienisz sobie setValue(totalProgress) na setValue(69) to zobaczysz, że nic się nie będzie zmieniać
-                                              // a pasek postępu będzie stał w miejscu na 69%
+    ui->progressBar->setValue(passwordStrength);
 }
 
 void AddUser::on_progressBar_valueChanged(int value)
