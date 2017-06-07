@@ -38,7 +38,6 @@ MainWindow::MainWindow(QWidget *parent) :
     //set header names in details view
     ui->archiveTree->setHeaderLabels({"DATE", "VOLUME", "VALUE", "%"});
 
-
     QPixmap picture(":/img/gpwapp.png");
     ui->PicLabel->setPixmap(picture);
 
@@ -151,6 +150,10 @@ void MainWindow::receiveUserData(QString login, std::map<QString, QString> logsA
 {
     ui->userName->setText(login);
     addItemsToUsersComboBox(logsAndPass);
+
+    //set current user in combobox same as login
+    int index = ui->UsersComboBox->findText(login);
+    ui->UsersComboBox->setCurrentIndex(index);
 }
 
 void MainWindow::makePlot()
@@ -262,7 +265,22 @@ void MainWindow::on_actionAbout_triggered()
 
 void MainWindow::on_buyItem_clicked()
 {
-    BuyItem buyItem(this);
-    buyItem.setModal(true);
-    buyItem.exec();
+    QTreeWidgetItem * currentItem = ui->StockList->currentItem();
+    if(currentItem != nullptr){
+        BuyItem *buyItem = new BuyItem(this);
+        buyItem->setModal(true);
+
+        //set connection between MainWindow and BuyItem
+        connect(this, SIGNAL(sendItemName(QString)), buyItem, SLOT(getItemName(QString)));
+
+
+        if(currentItem == nullptr) qDebug() << "fuck";
+        QString currentItemName = currentItem->text(0);
+        emit sendItemName(currentItemName);
+        buyItem->exec();
+    }
+    else{
+
+        QMessageBox::warning(this, "Upss", "Stock Item is not selected!");
+    }
 }

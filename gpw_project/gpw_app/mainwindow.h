@@ -25,6 +25,10 @@ public:
     void addItemsToUsersComboBox(std::map<QString, QString>&);
     void setAllConnections();
 
+signals:
+
+    void sendItemName(QString name);
+
 public slots:
 
     void putTheItemToList(InputData);

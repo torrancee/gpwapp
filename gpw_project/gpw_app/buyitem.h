@@ -15,6 +15,9 @@ public:
     explicit BuyItem(QWidget *parent = 0);
     ~BuyItem();
 
+public slots:
+    void getItemName(QString itemName);
+
 private:
     Ui::BuyItem *ui;
 };
