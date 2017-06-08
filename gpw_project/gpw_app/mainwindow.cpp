@@ -29,10 +29,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->StockList->setHeaderLabels({"NAME", "PRICE"});
 
     //set header names in details view
-    ui->detailsTree->setHeaderLabels({"DATE", "VOLUME", "VALUE", "%"});
+    ui->detailsTree->setHeaderLabels({"DATE", "VOLUME", "PRICE", "TOTAL", "%"});
 
     //set header names in details view
-    ui->archiveTree->setHeaderLabels({"DATE", "VOLUME", "VALUE", "%"});
+    ui->archiveTree->setHeaderLabels({"DATE", "VOLUME", "PRICE", "TOTAL", "%"});
 
     QPixmap picture(":/img/gpwapp.png");
     ui->PicLabel->setPixmap(picture);
@@ -153,6 +153,16 @@ void MainWindow::receiveUserData(QString login, std::map<QString, QString> logsA
         User newUser(temp.first);
         users.push_back(newUser);
     }
+
+}
+
+void MainWindow::receiveBuyItemData(QString price, QString volume, QDate date)
+{
+    qDebug() << "im here";
+    QTreeWidgetItem *itemDetailsList =  new QTreeWidgetItem(ui->detailsTree);
+    itemDetailsList->setText(0, date.toString("dd.MM.yyyy"));
+    itemDetailsList->setText(1, volume);
+    itemDetailsList->setText(2, price);
 
 }
 
