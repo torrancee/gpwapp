@@ -12,7 +12,7 @@ class AddName : public QDialog
     Q_OBJECT
 
 signals:
-    void newName(QString);
+    void sendNewItemName(QString);
 
 public:
     explicit AddName(QWidget *parent = 0);

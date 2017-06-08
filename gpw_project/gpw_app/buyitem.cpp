@@ -17,7 +17,7 @@ BuyItem::~BuyItem()
     delete ui;
 }
 
-void BuyItem::getItemName(QString itemName)
+void BuyItem::receiveItemName(QString itemName)
 {
     ui->stockItemName->setText(itemName);
 }

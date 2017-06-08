@@ -5,14 +5,13 @@
 #include <QFile>
 #include <QDebug>
 #include <QTextStream>
-#include <QDir>
 
 AddItemWindow::AddItemWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddItemWindow)
 {
     ui->setupUi(this);
-    connect(this, SIGNAL(mySignal(InputData)), parent, SLOT(putTheItemToList(InputData)));
+    connect(this, SIGNAL(sendItemNameAndPrice(InputData)), parent, SLOT(receiveItemList(InputData)));
 
     //add items to comboBox
     addStocksToComboBox();
@@ -23,15 +22,14 @@ AddItemWindow::~AddItemWindow()
     delete ui;
 }
 
-void AddItemWindow::newName(QString name)
+void AddItemWindow::receiveNewItemName(QString name)
 {
     ui->comboBox->addItem(name);
 
     QString pathToFile = createPathToFile("stocks.txt");
     QFile file(pathToFile);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Append))
-    {   qDebug() << "cannot open";
-        return; }
+        return;
 
     QTextStream out(&file);
     out << name << endl;
@@ -44,12 +42,7 @@ void AddItemWindow::on_buttonBox_accepted()
     InputData data;
     data.name = ui->comboBox->currentText();
     data.price = ui->PricEdit->text();
-    sendTheListOfStocks(data);
-}
-
-void AddItemWindow::sendTheListOfStocks(InputData data)
-{
-    emit mySignal(data);
+    emit sendItemNameAndPrice(data);
 }
 
 /*

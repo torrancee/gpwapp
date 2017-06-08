@@ -17,7 +17,7 @@ public:
     ~BuyItem();
 
 public slots:
-    void getItemName(QString itemName);
+    void receiveItemName(QString itemName);
 
 signals:
     void buyItemData(QString price, QString volume, QDate date);

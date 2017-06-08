@@ -6,7 +6,7 @@ AddName::AddName(QWidget *parent) :
     ui(new Ui::AddName)
 {
     ui->setupUi(this);
-    connect(this, SIGNAL(newName(QString)), parent, SLOT(newName(QString)));
+    connect(this, SIGNAL(sendNewItemName(QString)), parent, SLOT(receiveNewItemName(QString)));
 }
 
 AddName::~AddName()
@@ -16,5 +16,5 @@ AddName::~AddName()
 
 void AddName::on_buttonBox_accepted()
 {
-    emit newName(ui->nameEdit->text());
+    emit sendNewItemName(ui->nameEdit->text());
 }

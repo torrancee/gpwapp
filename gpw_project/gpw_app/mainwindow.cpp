@@ -53,10 +53,6 @@ void MainWindow::on_ImportData_clicked()
     QMessageBox::warning(this, "Upsss", "Feature not available");
 }
 
-/*
- *  TODO: create users in combobox from logsAndPass map
- */
-
 void MainWindow::addItemsToUsersComboBox(std::map<QString, QString>& logsAndPass)
 {
     for(auto &temp : logsAndPass){
@@ -68,7 +64,6 @@ void MainWindow::setAllConnections()
 {
     connect(ui->UsersComboBox,SIGNAL(currentTextChanged(QString)), ui->AccountValue, SLOT(setText(QString)));
     connect(ui->UsersComboBox,SIGNAL(currentTextChanged(QString)), ui->AccountPercent, SLOT(setText(QString)));
-
 }
 
 void MainWindow::on_AccountValue_textChanged(const QString &value)
@@ -111,7 +106,6 @@ void MainWindow::on_AddItem_clicked()
     //create window for add item
     AddItemWindow *itemWindow = new AddItemWindow(this);
     itemWindow->show();
-
 }
 
 /*
@@ -120,7 +114,7 @@ void MainWindow::on_AddItem_clicked()
  *
 */
 
-void MainWindow::putTheItemToList(InputData data)
+void MainWindow::receiveItemList(InputData data)
 {
 
     if(ui->StockList->findItems(data.name, Qt::MatchFixedString).length() != 0){
@@ -153,17 +147,14 @@ void MainWindow::receiveUserData(QString login, std::map<QString, QString> logsA
         User newUser(temp.first);
         users.push_back(newUser);
     }
-
 }
 
 void MainWindow::receiveBuyItemData(QString price, QString volume, QDate date)
 {
-    qDebug() << "im here";
     QTreeWidgetItem *itemDetailsList =  new QTreeWidgetItem(ui->detailsTree);
     itemDetailsList->setText(0, date.toString("dd.MM.yyyy"));
     itemDetailsList->setText(1, volume);
     itemDetailsList->setText(2, price);
-
 }
 
 void MainWindow::makePlot()
@@ -281,10 +272,8 @@ void MainWindow::on_buyItem_clicked()
         buyItem->setModal(true);
 
         //set connection between MainWindow and BuyItem
-        connect(this, SIGNAL(sendItemName(QString)), buyItem, SLOT(getItemName(QString)));
+        connect(this, SIGNAL(sendItemName(QString)), buyItem, SLOT(receiveItemName(QString)));
 
-
-        if(currentItem == nullptr) qDebug() << "fuck";
         QString currentItemName = currentItem->text(0);
         emit sendItemName(currentItemName);
         buyItem->exec();

@@ -19,7 +19,7 @@ class AddItemWindow : public QDialog
     Q_OBJECT
 
 signals:
-    void mySignal(InputData data);
+    void sendItemNameAndPrice(InputData data);
 
 public:
     explicit AddItemWindow(QWidget *parent = 0);
@@ -28,7 +28,7 @@ public:
     QString price;
 
 public slots:
-    void newName(QString name);
+    void receiveNewItemName(QString name);
 
 private slots:
     void on_buttonBox_accepted();
@@ -37,7 +37,6 @@ private slots:
 
 private:
     Ui::AddItemWindow *ui;
-    void sendTheListOfStocks(InputData);
     void addStocksToComboBox();
 };
 
