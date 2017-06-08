@@ -20,7 +20,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    User *akrz, *wpog;
+    std::vector<User> users;
     QPalette red, green, black;
     void addItemsToUsersComboBox(std::map<QString, QString>&);
     void setAllConnections();

@@ -14,10 +14,6 @@ MainWindow::MainWindow(QWidget *parent) :
     //addItemsToUsersComboBox();
     setAllConnections();
 
-    //create users
-    akrz = new User("Adam Krzywaniak");
-    wpog = new User("Wiktor Pogoda");
-
     //set text color for red, green and black palletes
     red.setColor(QPalette::Text, Qt::red);
     green.setColor(QPalette::Text, Qt::darkGreen);
@@ -45,10 +41,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    //delete users
-    delete akrz;
-    delete wpog;
-
     delete ui;
 }
 
@@ -154,6 +146,14 @@ void MainWindow::receiveUserData(QString login, std::map<QString, QString> logsA
     //set current user in combobox same as login
     int index = ui->UsersComboBox->findText(login);
     ui->UsersComboBox->setCurrentIndex(index);
+
+    //create and add users to vector
+    for(auto temp : logsAndPass){
+
+        User newUser(temp.first);
+        users.push_back(newUser);
+    }
+
 }
 
 void MainWindow::makePlot()

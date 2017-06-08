@@ -1,4 +1,4 @@
 #include "user.h"
 
-User::User(string name_):
+User::User(QString name_):
     name(name_){}
