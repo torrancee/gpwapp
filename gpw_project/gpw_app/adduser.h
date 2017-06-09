@@ -19,7 +19,7 @@ public:
     ~AddUser();
 
 signals:
-    void userData(QString, QString);
+    void sendUserData(QString, QString);
 
 
 private slots:

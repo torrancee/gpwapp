@@ -11,7 +11,7 @@ AddUser::AddUser(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(this, SIGNAL(userData(QString,QString)), parent, SLOT(receiveUserData(QString, QString)));
+    connect(this, SIGNAL(sendUserData(QString,QString)), parent, SLOT(receiveUserData(QString, QString)));
 
     QPixmap picture(":/img/users.png");
     ui->pic->setPixmap(picture.scaled(ui->pic->width(),
@@ -34,7 +34,7 @@ void AddUser::on_pushButton_clicked()
 {
 
     if(passwordStrength == PASSWORD_STRONG_ENOUGH && ui->passEdit->text() == ui->confirmEdit->text()){ //check if password and confirm password label is same
-        emit userData(ui->loginEdit->text(), ui->passEdit->text());
+        emit sendUserData(ui->loginEdit->text(), ui->passEdit->text());
         close();}
     else{
 
