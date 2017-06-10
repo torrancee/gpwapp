@@ -35,7 +35,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->archiveTree->setHeaderLabels({"DATE", "VOLUME", "PRICE", "TOTAL", "%"});
 
     QPixmap picture(":/img/gpwapp.png");
-    ui->PicLabel->setPixmap(picture);
+    ui->PicLabel->setPixmap(picture.scaled(ui->PicLabel->width(),
+                                           ui->PicLabel->height(),
+                                           Qt::KeepAspectRatio));
 
 }
 
