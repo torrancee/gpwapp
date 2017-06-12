@@ -16,7 +16,8 @@ class User final
 public:
     User() = delete;
     User(QString);
-    vector<shared_ptr<QTreeWidgetItem>> stockItems;
+    QString getName();
+    vector<StockItem> stockItems;
 
 private:
     const QString name;

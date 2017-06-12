@@ -49,6 +49,8 @@ private slots:
 
     void on_buyItem_clicked();
 
+    void on_UsersComboBox_currentIndexChanged(const QString &currentUser);
+
 private:
     Ui::MainWindow *ui;
     std::vector<QTreeWidgetItem> items;

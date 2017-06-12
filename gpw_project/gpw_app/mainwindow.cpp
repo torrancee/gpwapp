@@ -118,15 +118,28 @@ void MainWindow::on_AddItem_clicked()
 
 void MainWindow::receiveItemList(InputData data)
 {
+    QString currentUser = ui->UsersComboBox->currentText();
 
     if(ui->StockList->findItems(data.name, Qt::MatchFixedString).length() != 0){
 
         QMessageBox::warning(this, "Ups", "Item already exist");
     }
     else{
+
+        //push the data to ui stock list
         QTreeWidgetItem *itemStockList =  new QTreeWidgetItem(ui->StockList);
         itemStockList->setText(0, data.name);
         itemStockList->setText(1, data.price);
+
+        //push the data to current user object
+        for(auto &tempUser : users){
+
+            if(tempUser.getName() == currentUser){
+
+               StockItem newItem(data.name, data.price);
+               tempUser.stockItems.push_back(newItem);
+            }
+        }
     }
 }
 
@@ -283,5 +296,24 @@ void MainWindow::on_buyItem_clicked()
     else{
 
         QMessageBox::warning(this, "Upss", "Stock Item is not selected!");
+    }
+}
+
+void MainWindow::on_UsersComboBox_currentIndexChanged(const QString &currentUser)
+{
+    ui->StockList->clear();
+
+    for(auto &tempUser : users){
+
+        if(tempUser.getName() == currentUser){
+
+           for(auto &tempItem : tempUser.stockItems){
+
+               QTreeWidgetItem *itemStockList =  new QTreeWidgetItem(ui->StockList);
+               itemStockList->setText(0, tempItem.getName());
+               itemStockList->setText(1, tempItem.getPrice());
+
+           }
+        }
     }
 }

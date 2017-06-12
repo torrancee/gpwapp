@@ -5,12 +5,16 @@
 class StockItem
 {
 public:
-    StockItem();
+
+    StockItem() =  delete;
+    StockItem(QString name_, QString price_);
+    QString getName();
+    QString getPrice();
+
 private:
+
     QString name;
-    QString id;
-    int value;
-    int percentChange;
+    QString price;
 
 };
 
