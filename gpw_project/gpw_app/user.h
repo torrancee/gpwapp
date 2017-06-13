@@ -20,6 +20,7 @@ public:
     vector<StockItem> stockItems;
 
     void saveDataToTheFile();
+    void loadDataFromTheFile();
 
 private:
     const QString name;

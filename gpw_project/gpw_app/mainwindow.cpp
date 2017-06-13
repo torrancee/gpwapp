@@ -157,16 +157,21 @@ void MainWindow::receiveUserData(QString login, std::map<QString, QString> logsA
     ui->userName->setText(login);
     addItemsToUsersComboBox(logsAndPass);
 
-    //set current user in combobox same as login
-    int index = ui->UsersComboBox->findText(login);
-    ui->UsersComboBox->setCurrentIndex(index);
-
     //create and add users to vector
     for(auto temp : logsAndPass){
 
         User newUser(temp.first);
         users.push_back(newUser);
     }
+
+    //fill-in stockList for users
+    for(auto &user : users){
+        user.loadDataFromTheFile();
+    }
+
+    //set current user in combobox same as login
+    int index = ui->UsersComboBox->findText(login);
+    ui->UsersComboBox->setCurrentIndex(index);
 }
 
 void MainWindow::receiveBuyItemData(QString price, QString volume, QDate date)

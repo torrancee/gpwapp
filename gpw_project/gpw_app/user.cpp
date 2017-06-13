@@ -28,3 +28,25 @@ void User::saveDataToTheFile()
     file.flush();
     file.close();
 }
+
+void User::loadDataFromTheFile()
+{
+    QString fileName = getName() + "_stockList.txt";
+    QString pathToFile = createPathToFile(fileName);
+    QFile file(pathToFile);
+    if (!file.open(QIODevice::ReadOnly))
+        return;
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList nameAndPrice = line.split(" ");
+
+        QString name = nameAndPrice.at(0);
+        QString price = nameAndPrice.at(1);
+
+        StockItem newItem(name,price);
+        stockItems.push_back(newItem);
+    }
+
+}
