@@ -54,7 +54,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     std::vector<QTreeWidgetItem> items;
-
     void makePlot();
 };
 

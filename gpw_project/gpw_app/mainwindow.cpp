@@ -3,6 +3,7 @@
 #include <QMessageBox>
 #include <QDate>
 #include <buyitem.h>
+#include "func.h"
 
 using std::shared_ptr;
 
@@ -43,6 +44,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    for(auto &user : users){
+        user.saveDataToTheFile();
+    }
+
     delete ui;
 }
 

@@ -19,10 +19,14 @@ public:
     QString getName();
     vector<StockItem> stockItems;
 
+    void saveDataToTheFile();
+
 private:
     const QString name;
     double account;
     int noOfStockCompany;
+
+
 };
 
 #endif // USER_H

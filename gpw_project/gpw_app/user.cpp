@@ -1,4 +1,8 @@
 #include "user.h"
+#include "func.h"
+#include <QDebug>
+#include <QString>
+#include <QFile>
 
 User::User(QString name_):
     name(name_){}
@@ -6,4 +10,21 @@ User::User(QString name_):
 QString User::getName()
 {
     return name;
+}
+
+void User::saveDataToTheFile()
+{
+    QString fileName = getName() + "_stockList.txt";
+    QString pathToFile = createPathToFile(fileName);
+    QFile file(pathToFile);
+    if (!file.open(QIODevice::ReadWrite))
+        return;
+
+    QTextStream out(&file);
+    for(auto &stockItem : stockItems){
+        out << stockItem.getName() << " " << stockItem.getPrice() << endl;
+    }
+
+    file.flush();
+    file.close();
 }
