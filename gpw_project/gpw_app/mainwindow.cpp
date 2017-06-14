@@ -4,6 +4,7 @@
 #include <QDate>
 #include <buyitem.h>
 #include "func.h"
+#include "stockitem.h"
 
 using std::shared_ptr;
 
@@ -37,7 +38,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->detailsTree->header()->resizeSection(3, 67);
     ui->detailsTree->header()->resizeSection(4, 67);
     ui->detailsTree->header()->resizeSection(5, 20);
-
 
     //set header names in details view
     ui->archiveTree->setHeaderLabels({"DATE", "VOLUME", "PRICE", "TOTAL", "%"});
@@ -183,10 +183,30 @@ void MainWindow::receiveUserData(QString login, std::map<QString, QString> logsA
 
 void MainWindow::receiveBuyItemData(QString price, QString volume, QDate date)
 {
+    QString currentUserName =  ui->UsersComboBox->currentText();
+
+    QTreeWidgetItem *currentStockItem = ui->StockList->currentItem();
+    QString currentStockItemName = currentStockItem->text(0);
+
     QTreeWidgetItem *itemDetailsList =  new QTreeWidgetItem(ui->detailsTree);
-    itemDetailsList->setText(0, date.toString("dd.MM.yyyy"));
+    QString date_ = date.toString("dd.MM.yyyy");
+    itemDetailsList->setText(0, date_);
     itemDetailsList->setText(1, volume);
     itemDetailsList->setText(2, price);
+
+    for(auto &tempUser : users){
+        if(tempUser.getName() == currentUserName){
+
+            for(auto &tempItem : tempUser.stockItems)
+            {
+                if(tempItem.getName() == currentStockItemName){
+
+                    QString details = price + " " + volume + " " + date_;
+                    tempItem.setDetails(details);
+            }
+        }
+    }
+  }
 }
 
 void MainWindow::makePlot()

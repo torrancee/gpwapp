@@ -10,11 +10,15 @@ public:
     StockItem(QString name_, QString price_);
     QString getName();
     QString getPrice();
+    void setDetails(QString details_);
+
+    ~StockItem();
 
 private:
 
     QString name;
     QString price;
+    std::vector<QString> details;
 
 };
 
