@@ -30,7 +30,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->StockList->setHeaderLabels({"NAME", "PRICE"});
 
     //set header names in details view
-    ui->detailsTree->setHeaderLabels({"DATE", "VOLUME", "PRICE", "TOTAL", "%"});
+    ui->detailsTree->setHeaderLabels({"DATE", "VOL", "PRICE", "TOTAL", "C.TOTAL", "%"});
+    ui->detailsTree->header()->resizeSection(0, 95);
+    ui->detailsTree->header()->resizeSection(1, 67);
+    ui->detailsTree->header()->resizeSection(2, 67);
+    ui->detailsTree->header()->resizeSection(3, 67);
+    ui->detailsTree->header()->resizeSection(4, 67);
+    ui->detailsTree->header()->resizeSection(5, 20);
+
 
     //set header names in details view
     ui->archiveTree->setHeaderLabels({"DATE", "VOLUME", "PRICE", "TOTAL", "%"});
