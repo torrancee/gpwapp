@@ -51,6 +51,8 @@ private slots:
 
     void on_UsersComboBox_currentIndexChanged(const QString &currentUser);
 
+    void on_StockList_itemActivated(QTreeWidgetItem *item, int column);
+
 private:
     Ui::MainWindow *ui;
     std::vector<QTreeWidgetItem> items;

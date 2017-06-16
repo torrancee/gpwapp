@@ -12,13 +12,16 @@ public:
     QString getPrice();
     void setDetails(QString details_);
 
+    //move to private later
+    std::vector<QString> details; //"<price> <volume> <date>"
+
     ~StockItem();
 
 private:
 
     QString name;
     QString price;
-    std::vector<QString> details;
+
 
 };
 

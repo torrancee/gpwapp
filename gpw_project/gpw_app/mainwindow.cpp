@@ -354,3 +354,39 @@ void MainWindow::on_UsersComboBox_currentIndexChanged(const QString &currentUser
         }
     }
 }
+
+void MainWindow::on_StockList_itemActivated(QTreeWidgetItem *item, int column)
+{
+    qDebug() << "item activated" << item->text(column);
+
+    ui->detailsTree->clear();
+
+    QString currentUser = ui->UsersComboBox->currentText();
+
+    for(auto &tempUser : users){
+
+        if(tempUser.getName() == currentUser){
+
+           for(auto &tempItem : tempUser.stockItems){
+
+               if(tempItem.getName() == item->text(0)){
+
+                   for(auto & tempDetails : tempItem.details){
+                       QStringList detailsList = tempDetails.split(" ");
+
+                       QTreeWidgetItem *itemDetailsList = new QTreeWidgetItem(ui->detailsTree);
+                       itemDetailsList->setText(0, detailsList.at(2));
+                       itemDetailsList->setText(1, detailsList.at(0));
+                       itemDetailsList->setText(2, detailsList.at(1));
+                   }
+               }
+
+//               QTreeWidgetItem *itemStockList =  new QTreeWidgetItem(ui->StockList);
+//               itemStockList->setText(0, tempItem.getName());
+//               itemStockList->setText(1, tempItem.getPrice());
+
+           }
+        }
+    }
+
+}
