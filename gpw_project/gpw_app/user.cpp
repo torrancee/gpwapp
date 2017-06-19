@@ -17,7 +17,7 @@ void User::saveDataToTheFile()
     QString fileName = getName() + "_stockList.txt";
     QString pathToFile = createPathToFile(fileName);
     QFile file(pathToFile);
-    if (!file.open(QIODevice::ReadWrite))
+    if (!file.open(QIODevice::ReadWrite | QIODevice::Text))
         return;
 
     QTextStream out(&file);
