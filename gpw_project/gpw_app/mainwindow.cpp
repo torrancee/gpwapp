@@ -201,7 +201,7 @@ void MainWindow::receiveBuyItemData(QString price, QString volume, QDate date)
             {
                 if(tempItem.getName() == currentStockItemName){
 
-                    QString details = price + " " + volume + " " + date_;
+                    QString details = volume + " " + price + " " + date_;
                     tempItem.setDetails(details);
             }
         }
