@@ -67,4 +67,19 @@ void User::loadDataFromTheFile()
         stockItems.push_back(newItem);
     }
 
+    for(auto &stockItem : stockItems){
+
+        QString stockItemFileName = getName() + "_" + stockItem.getName() + "_details.txt";
+        QString pathToFile = createPathToFile(stockItemFileName);
+
+        QFile file(pathToFile);
+        if (!file.open(QIODevice::ReadOnly))
+            return;
+
+        QTextStream in(&file);
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            stockItem.details.push_back(line);
+        }
+    }
 }
