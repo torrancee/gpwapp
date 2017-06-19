@@ -380,13 +380,7 @@ void MainWindow::on_StockList_itemActivated(QTreeWidgetItem *item, int column)
                        itemDetailsList->setText(2, detailsList.at(1));
                    }
                }
-
-//               QTreeWidgetItem *itemStockList =  new QTreeWidgetItem(ui->StockList);
-//               itemStockList->setText(0, tempItem.getName());
-//               itemStockList->setText(1, tempItem.getPrice());
-
            }
         }
     }
-
 }

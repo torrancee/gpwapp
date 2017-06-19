@@ -21,5 +21,5 @@ void StockItem::setDetails(QString details_)
 
 StockItem::~StockItem()
 {
-    qDebug() << "size: " << details.size();
+
 }
