@@ -27,6 +27,24 @@ void User::saveDataToTheFile()
 
     file.flush();
     file.close();
+
+    for(auto &stockItem : stockItems){
+
+        QString stockItemFileName = getName() + "_" + stockItem.getName() + "_details.txt";
+        QString pathToFile = createPathToFile(stockItemFileName);
+
+        QFile file(pathToFile);
+        if (!file.open(QIODevice::ReadWrite))
+            return;
+
+        QTextStream out(&file);
+        for(auto &details : stockItem.details){
+            out << details << endl;
+        }
+
+        file.flush();
+        file.close();
+    }
 }
 
 void User::loadDataFromTheFile()
