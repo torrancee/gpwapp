@@ -5,6 +5,7 @@
 #include <QFile>
 #include <QDebug>
 #include <QTextStream>
+#include <QMessageBox>
 
 AddItemWindow::AddItemWindow(QWidget *parent) :
     QDialog(parent),
@@ -24,17 +25,22 @@ AddItemWindow::~AddItemWindow()
 
 void AddItemWindow::receiveNewItemName(QString name)
 {
-    ui->comboBox->addItem(name);
+    if(ui->comboBox->findText(name)  != -1){
+        QMessageBox::warning(this, "Ups", "Item already exist");
+    }
+    else{
+        ui->comboBox->addItem(name);
 
-    QString pathToFile = createPathToFile("stocks.txt");
-    QFile file(pathToFile);
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Append))
-        return;
+        QString pathToFile = createPathToFile("stocks.txt");
+        QFile file(pathToFile);
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Append))
+            return;
 
-    QTextStream out(&file);
-    out << name << endl;
-    file.flush();
-    file.close();
+        QTextStream out(&file);
+        out << name << endl;
+        file.flush();
+        file.close();
+    }
 }
 
 void AddItemWindow::on_buttonBox_accepted()

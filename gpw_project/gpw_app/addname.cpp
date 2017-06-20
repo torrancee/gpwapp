@@ -24,5 +24,6 @@ void AddName::on_okButton_clicked()
     }
     else{
         emit sendNewItemName(ui->nameEdit->text());
+        close();
     }
 }
