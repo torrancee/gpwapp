@@ -355,9 +355,9 @@ void MainWindow::on_UsersComboBox_currentIndexChanged(const QString &currentUser
     }
 }
 
-void MainWindow::on_StockList_itemActivated(QTreeWidgetItem *item, int column)
+void MainWindow::on_StockList_itemClicked(QTreeWidgetItem *item, int column)
 {
-    qDebug() << "item activated" << item->text(column);
+    qDebug() << "item clicked" << item->text(column);
 
     ui->detailsTree->clear();
 
