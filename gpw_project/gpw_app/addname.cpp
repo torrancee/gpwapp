@@ -1,5 +1,6 @@
 #include "addname.h"
 #include "ui_addname.h"
+#include <QMessageBox>
 
 AddName::AddName(QWidget *parent) :
     QDialog(parent),
@@ -14,7 +15,14 @@ AddName::~AddName()
     delete ui;
 }
 
-void AddName::on_buttonBox_accepted()
+void AddName::on_okButton_clicked()
 {
-    emit sendNewItemName(ui->nameEdit->text());
+    QString currentText = ui->nameEdit->text();
+
+    if(currentText == ""){
+        QMessageBox::warning(this, "Ups", "This field cannot be empty");
+    }
+    else{
+        emit sendNewItemName(ui->nameEdit->text());
+    }
 }

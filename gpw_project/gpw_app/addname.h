@@ -19,7 +19,7 @@ public:
     ~AddName();
 
 private slots:
-    void on_buttonBox_accepted();
+    void on_okButton_clicked();
 
 private:
     Ui::AddName *ui;
