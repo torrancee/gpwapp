@@ -5,6 +5,7 @@
 #include <buyitem.h>
 #include "func.h"
 #include "stockitem.h"
+#include "newprice.h"
 
 using std::shared_ptr;
 
@@ -383,4 +384,14 @@ void MainWindow::on_StockList_itemClicked(QTreeWidgetItem *item, int column)
            }
         }
     }
+}
+
+void MainWindow::on_EditPrice_clicked()
+{
+    //QTreeWidgetItem *currentItem = ui->StockList->currentItem();
+
+    NewPrice newPriceDialog(this);
+    newPriceDialog.setModal(true);
+    newPriceDialog.exec();
+
 }

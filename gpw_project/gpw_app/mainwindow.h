@@ -53,6 +53,8 @@ private slots:
 
     void on_StockList_itemClicked(QTreeWidgetItem *item, int column);
 
+    void on_EditPrice_clicked();
+
 private:
     Ui::MainWindow *ui;
     std::vector<QTreeWidgetItem> items;

@@ -33,7 +33,8 @@ SOURCES += main.cpp\
     adduser.cpp \
     buyitem.cpp \
     addname.cpp \
-    func.cpp
+    func.cpp \
+    newprice.cpp
 
 HEADERS  += mainwindow.h \
     user.h \
@@ -44,14 +45,16 @@ HEADERS  += mainwindow.h \
     adduser.h \
     buyitem.h \
     addname.h \
-    func.h
+    func.h \
+    newprice.h
 
 FORMS    += mainwindow.ui \
     login.ui \
     additemwindow.ui \
     adduser.ui \
     buyitem.ui \
-    addname.ui
+    addname.ui \
+    newprice.ui
 
 RESOURCES += \
     resources.qrc
