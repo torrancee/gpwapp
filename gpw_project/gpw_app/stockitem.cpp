@@ -14,6 +14,11 @@ QString StockItem::getPrice()
     return price;
 }
 
+void StockItem::setPrice(QString price_)
+{
+    price = price_;
+}
+
 void StockItem::setDetails(QString details_)
 {
     details.push_back(details_);

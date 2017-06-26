@@ -206,8 +206,25 @@ void MainWindow::receiveBuyItemData(QString price, QString volume, QDate date)
                     tempItem.setDetails(details);
             }
         }
+      }
     }
-  }
+}
+
+void MainWindow::receiveItemNewPrice(QString name, QString price)
+{
+    for(auto &tempUser : users){
+
+        for(auto &tempItem : tempUser.stockItems){
+
+            if(tempItem.getName() == name)
+                tempItem.setPrice(price);
+        }
+    }
+
+    //to refresh price in current user view
+    int currentUser = ui->UsersComboBox->currentIndex();
+    ui->UsersComboBox->setCurrentIndex(-1);
+    ui->UsersComboBox->setCurrentIndex(currentUser);
 }
 
 void MainWindow::makePlot()
@@ -388,10 +405,22 @@ void MainWindow::on_StockList_itemClicked(QTreeWidgetItem *item, int column)
 
 void MainWindow::on_EditPrice_clicked()
 {
-    //QTreeWidgetItem *currentItem = ui->StockList->currentItem();
+    QTreeWidgetItem *currentItem = ui->StockList->currentItem();
 
-    NewPrice newPriceDialog(this);
-    newPriceDialog.setModal(true);
-    newPriceDialog.exec();
+    if(currentItem == nullptr){
+
+        QMessageBox::warning(this, "Ups", "Item not selected.");
+    }
+    else{
+
+        NewPrice *newPriceDialog = new NewPrice(this);
+        QString itemName =  currentItem->text(0);
+        newPriceDialog->setModal(true);
+
+        connect(this, SIGNAL(sendItemName(QString)), newPriceDialog, SLOT(receiveItemName(QString)));
+        emit sendItemName(itemName);
+
+        newPriceDialog->exec();
+    }
 
 }

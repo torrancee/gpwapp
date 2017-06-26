@@ -10,6 +10,7 @@ public:
     StockItem(QString name_, QString price_);
     QString getName();
     QString getPrice();
+    void setPrice(QString price_);
     void setDetails(QString details_);
 
     //move to private later

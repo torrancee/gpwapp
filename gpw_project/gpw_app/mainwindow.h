@@ -34,6 +34,7 @@ public slots:
     void receiveItemList(InputData data);
     void receiveUserData(QString login, std::map<QString, QString>);
     void receiveBuyItemData(QString price, QString volume, QDate date);
+    void receiveItemNewPrice(QString name, QString price);
 
 private slots:
 

@@ -15,6 +15,15 @@ public:
     explicit NewPrice(QWidget *parent = 0);
     ~NewPrice();
 
+signals:
+    void sendNewPrice(QString name, QString price);
+
+public slots:
+    void receiveItemName(QString name);
+
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::NewPrice *ui;
 };
