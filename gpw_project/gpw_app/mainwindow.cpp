@@ -424,3 +424,11 @@ void MainWindow::on_EditPrice_clicked()
     }
 
 }
+
+void MainWindow::on_SellItem_clicked()
+{
+    QTreeWidgetItem *currentItem = ui->detailsTree->currentItem();
+    if(currentItem == nullptr){
+        QMessageBox::warning(this, "Ups", "Item not selected");
+    }
+}
