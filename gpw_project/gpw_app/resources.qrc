@@ -3,5 +3,10 @@
         <file>img/logo.png</file>
         <file>img/gpwapp.png</file>
         <file>img/users.png</file>
+        <file>img/users_red.png</file>
+        <file>img/users_green_middle.png</file>
+        <file>img/users_green_full.png</file>
+        <file>img/users_green_bottom.png</file>
+        <file>img/parkiet.png</file>
     </qresource>
 </RCC>

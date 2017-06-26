@@ -15,7 +15,7 @@ Login::Login(QWidget *parent) :
     ui(new Ui::Login)
 {
     ui->setupUi(this);
-    QPixmap picture(":/img/logo.png");
+    QPixmap picture(":/img/parkiet.png");
     ui->PicLabel->setPixmap(picture.scaled(ui->PicLabel->width(),
                                            ui->PicLabel->height(),
                                            Qt::KeepAspectRatio));
