@@ -6,6 +6,7 @@
 #include "func.h"
 #include "stockitem.h"
 #include "newprice.h"
+#include "sellitem.h"
 
 using std::shared_ptr;
 
@@ -431,4 +432,13 @@ void MainWindow::on_SellItem_clicked()
     if(currentItem == nullptr){
         QMessageBox::warning(this, "Ups", "Item not selected");
     }
+    else{
+
+        SellItem *sellItemWindow = new SellItem(this);
+        sellItemWindow->setModal(true);
+        sellItemWindow->exec();
+    }
+
+
+
 }
