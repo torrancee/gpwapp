@@ -33,7 +33,7 @@ AddUser::~AddUser()
 void AddUser::on_pushButton_clicked()
 {
 
-    if(passwordStrength == PASSWORD_STRONG_ENOUGH && ui->passEdit->text() == ui->confirmEdit->text()){ //check if password and confirm password label is same
+    if(loginAccepted == LOGIN_OK && passwordStrength == PASSWORD_STRONG_ENOUGH && ui->passEdit->text() == ui->confirmEdit->text()){ //check if password and confirm password label is same
         emit sendUserData(ui->loginEdit->text(), ui->passEdit->text());
         close();}
     else{
@@ -75,4 +75,26 @@ void AddUser::on_progressBar_valueChanged(int value)
         ui->progressBar->setPalette(yellow);
     else if(value >=80)
         ui->progressBar->setPalette(green);
+}
+
+void AddUser::on_loginEdit_textChanged(const QString &login)
+{
+//    loginAccepted = LOGIN_NOK;
+//    if(login.length() > 0 && login.length() < 2){
+//        QPixmap picture(":/img/users_green_bottom.png");
+//    }else if (login.length() == 2){
+//        QPixmap picture(":/img/users_green_middle.png");
+//    }else if(login.length() > 2){
+//        if(logsAndPass.find(login) == logsAndPass.end()){
+//            QPixmap picture(":/img/users_green_full.png");
+//            loginAccepted = LOGIN_OK;
+//        }else{
+//            QPixmap picture(":/img/users_red.png");
+//        }
+//    }else{
+//        QPixmap picture(":/img/users.png");
+//    }
+//    ui->pic->setPixmap(picture.scaled(ui->pic->width(),
+//                                           ui->pic->height(),
+//                                           Qt::KeepAspectRatio));
 }

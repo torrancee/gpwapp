@@ -2,6 +2,8 @@
 #define ADDUSER_H
 
 #define PASSWORD_STRONG_ENOUGH 100
+#define LOGIN_NOK 0
+#define LOGIN_OK 1
 
 #include <QDialog>
 #include <QPalette>
@@ -29,10 +31,13 @@ private slots:
 
     void on_progressBar_valueChanged(int value);
 
+    void on_loginEdit_textChanged(const QString &login);
+
 private:
     Ui::AddUser *ui;
     QPalette red, green, yellow;
     int passwordStrength;
+    int loginAccepted;
 
 };
 
