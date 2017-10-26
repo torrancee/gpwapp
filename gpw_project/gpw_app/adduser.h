@@ -4,6 +4,7 @@
 #define PASSWORD_STRONG_ENOUGH 100
 #define LOGIN_NOK 0
 #define LOGIN_OK 1
+#define PATRYSIA_SIE_UCZY 1
 
 #include <QDialog>
 #include <QPalette>
